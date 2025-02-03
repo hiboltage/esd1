@@ -1,0 +1,19 @@
+device name: 5CSEMA5F31C6
+
+connections
+clk and clk reset connect to everything
+data master connects to everything
+instruction master only connects to debug mem slave and onchip memory
+debug reset request connects to everything except clk_in_reset
+
+error cleanup
+right click on the nios2_gen2 and select edit
+select the vector tab and change the reset and exception vectors to onchip_memory2_0.s1
+system -> assign base addresses
+DONT FORGET TO EXPORT EXTERNAL CONNECTIONS
+
+programming
+click auto detect
+select 5CSEMA5
+change file to the project .sof
+make sure that program/configure is only selected for 5CSEMA5

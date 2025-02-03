@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------
+# Assembly language program that reads data from the switches
+# and displays it on the LEDs.
+# ---------------------------------------------------------------
+
+.text
+
+# define a macro to move a 32 bit address to a register
+
+.macro MOVIA reg, addr
+  movhi \reg, %hi(\addr)
+  ori \reg, \reg, %lo(\addr)
+.endm
+
+# define constants
+.equ PB,   0x11010    #base address of pushbuttons in the system.h file
+.equ HEX0, 0x11000    #base address of HEX0 in the system.h file
+
+#Define the main program
+.global main
+main: 	#load r2 and r3 with the addresses
+  		movia r2, PB
+  		movia r3, HEX0
+
+  		addi r3, r0, 0x000  #write all zeros to HEX0
+
+loop:
+		ldbio r4, 0(r2)  #reads value at pushbutton address to r4
+		br loop

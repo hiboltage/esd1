@@ -1,0 +1,11 @@
+/* Program that finds the largest number in a list of integers */
+		.text
+		.global main
+
+main:
+
+
+STOP:	br			STOP				# remain here if done
+
+.end
+

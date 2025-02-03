@@ -1,0 +1,14 @@
+/* Program that finds the largest number in a list of integers */
+		.text
+		.global main
+
+main:
+		movia		r8, RESULT		# r8 points to the result location
+		ldw		r4, 4(r8)		# r4 is a counter, initialize it with N
+		addi		r5, r8, 8		# r5 points to the first number
+		ldw		r2, (r5)			# r2 holds the largest number found so far
+
+STOP:	br			STOP				# remain here if done
+
+.end
+
