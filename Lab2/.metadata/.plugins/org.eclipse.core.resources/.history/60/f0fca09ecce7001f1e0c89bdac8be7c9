@@ -23,10 +23,10 @@
 .equ THREE, 0xB0
 .equ FOUR,  0x99
 .equ FIVE,  0x92
-.equ SIX,   0x83
+.equ SIX,   0x82
 .equ SEVEN, 0xF8
 .equ EIGHT, 0x80
-.equ NINE,  0x98
+.equ NINE,  0x90
 
 #Define the main program
 .global main
@@ -35,9 +35,18 @@ main:
 		movia r3, KEY
 		movia r4, HEX0
 
-		movia r14, ARRAY	#load array pointers
-		movia r15, ARRAY
-		movia r16, ARRAYend
+		movia r14, ZERO		#load ssd addresses
+		movia r15, ONE
+		movia r16, TWO
+		movia r17, THREE
+		movia r18, FOUR
+		movia r19, FIVE
+		movia r20, SIX
+		movia r21, SEVEN
+		movia r22, EIGHT
+		movia r23, NINE
+
+  		stbio r14, 0(r5)	#r5 points to the location of r14
 
   		call	DISPLAY		#display zero on HEX0
 
@@ -66,23 +75,17 @@ WAIT:
 		ret
 
 DECREMENT:
-		subi r14, r14, 1		#decrement to prior register
+		subi r5, r5, 4		#decrement to prior register
 
 		br DISPLAY
 
 INCREMENT:
-		addi r14, r14, 1		#increment to next register
+		addi r5, r5, 4		#increment to next register
 
 		br DISPLAY
 
 DISPLAY:
-		ldbio r6, 0(r14)	#load value from memory pointer
+		ldbio r6, 0(r5)		#load value from memory pointer
   		stbio r6, 0(r4)		#write value to HEX0
 
   		br loop  			#return to main program
-
-		.data
-ARRAY:
-		.byte ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
-ARRAYend:
-		.end		#this points to the next location NOT NINE

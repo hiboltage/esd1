@@ -23,10 +23,10 @@
 .equ THREE, 0xB0
 .equ FOUR,  0x99
 .equ FIVE,  0x92
-.equ SIX,   0x83
+.equ SIX,   0x82
 .equ SEVEN, 0xF8
 .equ EIGHT, 0x80
-.equ NINE,  0x98
+.equ NINE,  0x90
 
 #Define the main program
 .global main

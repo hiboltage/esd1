@@ -26,7 +26,7 @@
 .equ SIX,   0x83
 .equ SEVEN, 0xF8
 .equ EIGHT, 0x80
-.equ NINE,  0x98
+.equ NINE,  0xC8
 
 #Define the main program
 .global main

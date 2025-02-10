@@ -20,13 +20,13 @@
 .equ ZERO,  0xC0
 .equ ONE,   0xF9
 .equ TWO,   0xA4
-.equ THREE, 0xB0
-.equ FOUR,  0x99
+.equ THREE, 0xF0
+.equ FOUR,  0x98
 .equ FIVE,  0x92
 .equ SIX,   0x83
 .equ SEVEN, 0xF8
 .equ EIGHT, 0x80
-.equ NINE,  0x98
+.equ NINE,  0xB8
 
 #Define the main program
 .global main
