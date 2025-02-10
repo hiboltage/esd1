@@ -79,12 +79,12 @@ INCREMENT:
 		br DISPLAY
 
 WRAP:
-		subi r14, r17, 1	#loop around to end of array
+		movia r14, r16		#zero to nine
 
 		br DISPLAY
 
 OVERFLOW:
-		movia r14, ARRAY	#loop back to beginning of array
+		movia r14, ARRAY	#nine to zero
 
 		br DISPLAY
 

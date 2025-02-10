@@ -79,3 +79,175 @@ Info: Building ../lab2_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
 [BSP build complete]
 [lab2 build complete]
+17:07:45 **** Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+lights.s: Assembler messages:
+lights.s:75: Error: unknown register 16
+make: *** [obj/default/lights.o] Error 1
+17:07:46 **** Build of configuration Nios II for project lab2_bsp ****
+make all 
+[BSP build complete]
+17:08:05 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+nios2-elf-insert lab2.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 16 --sidp 0x11030 --timestamp 1738686967 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/Lab2" --jdi ../..//output_files/Lab2.jdi --sopcinfo C:/Users/steve/ESD1/Lab2/software/lab2_bsp/../../nios_system.sopcinfo
+Info: (lab2.elf) 15 KBytes program size (code + initialized data).
+Info:            11 KBytes free for stack + heap.
+Info: Creating lab2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab2.elf >lab2.objdump
+[lab2 build complete]
+17:08:07 **** Incremental Build of configuration Nios II for project lab2_bsp ****
+make all 
+[BSP build complete]
+17:08:34 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+[lab2 build complete]
+17:09:31 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+[lab2 build complete]
+17:11:39 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+nios2-elf-insert lab2.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 16 --sidp 0x11030 --timestamp 1738686967 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/Lab2" --jdi ../..//output_files/Lab2.jdi --sopcinfo C:/Users/steve/ESD1/Lab2/software/lab2_bsp/../../nios_system.sopcinfo
+Info: (lab2.elf) 15 KBytes program size (code + initialized data).
+Info:            11 KBytes free for stack + heap.
+Info: Creating lab2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab2.elf >lab2.objdump
+[lab2 build complete]
+17:14:41 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+lights.s: Assembler messages:
+lights.s:81: Error: unknown register ARRAYend
+make: *** [obj/default/lights.o] Error 1
+17:15:22 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+nios2-elf-insert lab2.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 16 --sidp 0x11030 --timestamp 1738686967 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/Lab2" --jdi ../..//output_files/Lab2.jdi --sopcinfo C:/Users/steve/ESD1/Lab2/software/lab2_bsp/../../nios_system.sopcinfo
+Info: (lab2.elf) 15 KBytes program size (code + initialized data).
+Info:            11 KBytes free for stack + heap.
+Info: Creating lab2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab2.elf >lab2.objdump
+[lab2 build complete]
+17:15:41 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+nios2-elf-insert lab2.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 16 --sidp 0x11030 --timestamp 1738686967 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/Lab2" --jdi ../..//output_files/Lab2.jdi --sopcinfo C:/Users/steve/ESD1/Lab2/software/lab2_bsp/../../nios_system.sopcinfo
+Info: (lab2.elf) 15 KBytes program size (code + initialized data).
+Info:            11 KBytes free for stack + heap.
+Info: Creating lab2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab2.elf >lab2.objdump
+[lab2 build complete]
+17:19:05 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+obj/default/lights.o: In function `WRAP':
+C:\Users\steve\ESD1\Lab2\software\lab2/lights.s:82: undefined reference to `r16'
+C:\Users\steve\ESD1\Lab2\software\lab2/lights.s:82: undefined reference to `r16'
+collect2.exe: error: ld returned 1 exit status
+make: *** [lab2.elf] Error 1
+17:19:43 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+lights.s: Assembler messages:
+lights.s:82: Error: unknown register ARRAYend
+make: *** [obj/default/lights.o] Error 1
+17:19:44 **** Incremental Build of configuration Nios II for project lab2_bsp ****
+make all 
+[BSP build complete]
+17:19:56 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+lights.s: Assembler messages:
+lights.s:82: Error: unknown register ARRAYend
+make: *** [obj/default/lights.o] Error 1
+17:19:57 **** Incremental Build of configuration Nios II for project lab2_bsp ****
+make all 
+[BSP build complete]
+17:20:05 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+lights.s: Assembler messages:
+lights.s:82: Error: unknown register ARRAYend
+make: *** [obj/default/lights.o] Error 1
+17:20:22 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+Info: Assembling lights.s to obj/default/lights.o
+nios2-elf-gcc -MP -MMD -c -I../lab2_bsp//HAL/inc -I../lab2_bsp/ -I../lab2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -Wa,-I../lab2_bsp//HAL/inc -Wa,-I../lab2_bsp/ -Wa,-I../lab2_bsp//drivers/inc -Wa,-gdwarf2 -o obj/default/lights.o lights.s
+Info: Linking lab2.elf
+nios2-elf-g++  -T'../lab2_bsp//linker.x' -msys-crt0='../lab2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab2_bsp/   -Wl,-Map=lab2.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab2.elf obj/default/lights.o -lm -msys-lib=m
+nios2-elf-insert lab2.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 16 --sidp 0x11030 --timestamp 1738686967 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/Lab2" --jdi ../..//output_files/Lab2.jdi --sopcinfo C:/Users/steve/ESD1/Lab2/software/lab2_bsp/../../nios_system.sopcinfo
+Info: (lab2.elf) 15 KBytes program size (code + initialized data).
+Info:            11 KBytes free for stack + heap.
+Info: Creating lab2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab2.elf >lab2.objdump
+[lab2 build complete]
+17:20:24 **** Incremental Build of configuration Nios II for project lab2_bsp ****
+make all 
+[BSP build complete]
+17:20:30 **** Incremental Build of configuration Nios II for project lab2 ****
+make all 
+Info: Building ../lab2_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab2_bsp/
+[BSP build complete]
+[lab2 build complete]

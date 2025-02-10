@@ -37,8 +37,7 @@ main:
 
 		movia r14, ARRAY		#array pointer
 		movia r15, ARRAY		#array start
-		movia r17, ARRAYend		#one further than array end
-		subi r16, r17, 1		#array end
+		movia r16, ARRAYend		#array end
 
   		call	DISPLAY			#display zero on HEX0
 
@@ -67,24 +66,13 @@ WAIT:
 		ret
 
 DECREMENT:
-		beq r14, r15, WRAP	#count wraparoud
-		subi r14, r14, 1	#decrement to prior register
+		beq r14, r15,
+		subi r14, r14, 1		#decrement to prior register
 
 		br DISPLAY
 
 INCREMENT:
-		beq r14, r16, OVERFLOW	#count wraparound
 		addi r14, r14, 1		#increment to next register
-
-		br DISPLAY
-
-WRAP:
-		subi r14, r17, 1	#loop around to end of array
-
-		br DISPLAY
-
-OVERFLOW:
-		movia r14, ARRAY	#loop back to beginning of array
 
 		br DISPLAY
 

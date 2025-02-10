@@ -79,7 +79,7 @@ INCREMENT:
 		br DISPLAY
 
 WRAP:
-		subi r14, r17, 1	#loop around to end of array
+		movia r14, r16		#loop around to end of array
 
 		br DISPLAY
 

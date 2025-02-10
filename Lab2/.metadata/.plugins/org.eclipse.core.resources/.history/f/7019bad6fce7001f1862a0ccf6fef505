@@ -37,8 +37,8 @@ main:
 
 		movia r14, ARRAY		#array pointer
 		movia r15, ARRAY		#array start
-		movia r17, ARRAYend		#one further than array end
-		subi r16, r17, 1		#array end
+		movia r17, ARRAYend		#array end
+		subi r16
 
   		call	DISPLAY			#display zero on HEX0
 
@@ -79,12 +79,12 @@ INCREMENT:
 		br DISPLAY
 
 WRAP:
-		subi r14, r17, 1	#loop around to end of array
+		addi r14, r16, 1	#zero to nine
 
 		br DISPLAY
 
 OVERFLOW:
-		movia r14, ARRAY	#loop back to beginning of array
+		movia r14, ARRAY	#nine to zero
 
 		br DISPLAY
 

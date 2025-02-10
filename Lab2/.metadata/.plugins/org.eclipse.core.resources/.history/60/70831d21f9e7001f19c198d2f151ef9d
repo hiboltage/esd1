@@ -17,7 +17,7 @@
 .equ KEY,   0x11010    	#base address of pushbuttons in the system.h file
 .equ HEX0,  0x11000    	#base address of HEX0 in the system.h file
 
-.equ ZERO,  0xC0		#ssd display values
+.equ ZERO,  0xC0		#
 .equ ONE,   0xF9
 .equ TWO,   0xA4
 .equ THREE, 0xB0
@@ -37,10 +37,9 @@ main:
 
 		movia r14, ARRAY		#array pointer
 		movia r15, ARRAY		#array start
-		movia r17, ARRAYend		#one further than array end
-		subi r16, r17, 1		#array end
+		movia r16, ARRAYend		#array end
 
-  		call	DISPLAY			#display zero on HEX0
+  		call	DISPLAY		#display zero on HEX0
 
 loop:
 		ldbio r13, 0(r3)        #read pushbuttons
@@ -67,24 +66,12 @@ WAIT:
 		ret
 
 DECREMENT:
-		beq r14, r15, WRAP	#count wraparoud
-		subi r14, r14, 1	#decrement to prior register
+		subi r14, r14, 1		#decrement to prior register
 
 		br DISPLAY
 
 INCREMENT:
-		beq r14, r16, OVERFLOW	#count wraparound
 		addi r14, r14, 1		#increment to next register
-
-		br DISPLAY
-
-WRAP:
-		subi r14, r17, 1	#loop around to end of array
-
-		br DISPLAY
-
-OVERFLOW:
-		movia r14, ARRAY	#loop back to beginning of array
 
 		br DISPLAY
 
@@ -94,8 +81,7 @@ DISPLAY:
 
   		br loop  			#return to main program
 
-
-		.data		#ssd data array
+		.data
 ARRAY:
 		.byte ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
 ARRAYend:
