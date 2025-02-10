@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------
+# Assembly language program that reads data from the switches
+# and displays it on the LEDs.
+# ---------------------------------------------------------------
+
+.text
+
+# define a macro to move a 32 bit address to a register
+
+.macro MOVIA reg, addr
+  movhi \reg, %hi(\addr)
+  ori \reg, \reg, %lo(\addr)
+.endm
+
+# define constants
+.equ SW,    0x11020    #base address of Switches in the system.h file
+.equ KEY,   0x11010    #base address of pushbuttons in the system.h file
+.equ HEX0,  0x11000    #base address of HEX0 in the system.h file
+
+.equ SW0,   0x00001    #bitmask for sw0
+.equ KEY1,  0x00002    #bitmask for key1
+
+#Define the main program
+.global main
+main: 	#load addresses
+  		movia r2, SW
+		movia r3, KEY
+		movia r4, HEX0
+
+		movia r20, SW0
+		movia r21, KEY1
+
+  		addi r5, r0, 0x40  #write 0 to r5
+  		stbio r5, 0(r6)	   #write 0 to HEX0
+
+  		addi r6, r0, 0  # create counter register
+
+loop:
+		ldbio r14, 0(r4)        #read pushbuttons
+		beq r9&r21,r0, PRESS    #if key1 pressed, jump to PRESS
+
+		br loop
+
+PRESS:
+		call	WAIT  #wait for pushbutton to be released
+
+		ldbio r12, 0(r2)  #read switches
+		addi r8,r8, 1  # add one to count
+
+		call	DISPLAY  #display value on HEX0
+
+WAIT:
+		ldbio r9, 0(r4)  #check key1 value
+		beq r5,r9, WAIT  #wait for key1 to be released
+
+DISPLAY:

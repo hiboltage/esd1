@@ -1,0 +1,85 @@
+# ---------------------------------------------------------------
+# Assembly language program that reads data from the switches
+# and displays it on the LEDs.
+# ---------------------------------------------------------------
+
+.text
+
+# define a macro to move a 32 bit address to a register
+
+.macro MOVIA reg, addr
+  movhi \reg, %hi(\addr)
+  ori \reg, \reg, %lo(\addr)
+.endm
+
+# define constants
+.equ SW,    0x11020    #base address of Switches in the system.h file
+.equ KEY,   0x11010    #base address of pushbuttons in the system.h file
+.equ HEX0,  0x11000    #base address of HEX0 in the system.h file
+
+.equ ZERO,  0x40
+.equ ONE,   0xF9
+.equ TWO,   0xE4
+.equ THREE, 0xF0
+.equ FOUR,  0x98
+.equ FIVE,  0x92
+.equ SIX,   0x02
+.equ SEVEN, 0xF8
+.equ EIGHT, 0x00
+.equ NINE,  0x18
+
+#Define the main program
+.global main
+main: 	#load addresses
+  		movia r2, SW
+		movia r3, KEY
+		movia r4, HEX0
+
+		movia r14, ONE   	#load ssd addresses
+		movia r15, TWO
+		movia r16, THREE
+		movia r17, FOUR
+		movia r18, FIVE
+		movia r19, SIX
+		movia r20, SEVEN
+		movia r21, EIGHT
+		movia r22, NINE
+
+  		stbio r14, 0(r4)	#write 0 to HEX0
+  		add r5, r14, r0		#start r5 at zero
+
+loop:
+		ldbio r13, 0(r3)        #read pushbuttons
+		andi r13, r13, 0x0002   #check key1 value
+		beq r13, r0, PRESS      #if key1 pressed, jump to PRESS
+
+		br loop
+
+PRESS:
+		call	WAIT  			#wait for pushbutton to be released
+
+		ldbio r12, 0(r2)		#read switches
+		andi r12, r12, 0x0001	#check sw1 value
+		beq r12, r0, DECREMENT	#if switch low
+		bne r12, r0, INCREMENT	#if switch high
+
+		call	DISPLAY			#display value on HEX0
+
+WAIT:
+		ldbio r13, 0(r3)        #check key1 value
+		andi r13, r13, 0x0002	#key1 bitmask
+		beq r13, r0, WAIT       #wait for key1 to be released
+
+		ret
+
+DECREMENT:
+		subi r5, r5, 0x0004		#decrement to prior register
+
+		ret
+
+INCREMENT:
+
+DISPLAY:
+  		stbio r5, 0(r6)		#write to HEX0
+
+  		br loop  			#return to main program

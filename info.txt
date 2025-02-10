@@ -1,5 +1,8 @@
 device name: 5CSEMA5F31C6
 
+on-chip memory
+32kB width is 32768 bytes
+
 connections
 clk and clk reset connect to everything
 data master connects to everything
