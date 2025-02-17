@@ -1,0 +1,21 @@
+15:32:04 **** Incremental Build of configuration Nios II for project lab3 ****
+make all 
+Info: Building ../lab3_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab3_bsp/
+[BSP build complete]
+Info: Compiling int.c to obj/default/int.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab3_bsp//HAL/inc -I../lab3_bsp/ -I../lab3_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/int.o int.c
+int.c:27:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main(){
+      ^
+Info: Linking lab3.elf
+nios2-elf-g++  -T'../lab3_bsp//linker.x' -msys-crt0='../lab3_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab3_bsp/   -Wl,-Map=lab3.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab3.elf obj/default/int.o -lm -msys-lib=m
+nios2-elf-insert lab3.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 17 --sidp 0x11060 --timestamp 1739302418 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/ESD1/lab3" --jdi ../..//output_files/lab3.jdi --sopcinfo C:/Users/steve/ESD1/lab3/software/lab3_bsp/../../nios_system.sopcinfo
+Info: (lab3.elf) 15 KBytes program size (code + initialized data).
+Info:            10 KBytes free for stack + heap.
+Info: Creating lab3.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab3.elf >lab3.objdump
+[lab3 build complete]
+
+15:32:06 Build Finished (took 1s.417ms)
+

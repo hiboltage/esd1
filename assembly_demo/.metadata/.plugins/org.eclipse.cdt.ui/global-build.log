@@ -1,10 +1,16 @@
-11:11:53 **** Incremental Build of configuration Nios II for project assembly_demo_new ****
+16:21:24 **** Incremental Build of configuration Nios II for project assembly_demo_new_bsp ****
+make all 
+[BSP build complete]
+16:21:32 **** Incremental Build of configuration Nios II for project assembly_demo_new ****
 make all 
 Info: Building ../assembly_demo_new_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../assembly_demo_new_bsp/
 [BSP build complete]
 [assembly_demo_new build complete]
-11:12:07 **** Incremental Build of configuration Nios II for project assembly_demo_new ****
+16:21:33 **** Incremental Build of configuration Nios II for project assembly_demo_new_bsp ****
+make all 
+[BSP build complete]
+16:21:43 **** Incremental Build of configuration Nios II for project assembly_demo_new ****
 make all 
 Info: Building ../assembly_demo_new_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../assembly_demo_new_bsp/
