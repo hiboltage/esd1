@@ -224,3 +224,117 @@ Info: Building ../custom_component_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
 [BSP build complete]
 [custom_component build complete]
+12:02:05 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:02:07 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:02:13 **** Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:02:15 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:09:48 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:09:49 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:09:53 **** Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:09:55 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:12:23 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:12:24 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:12:27 **** Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:12:29 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:29:35 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:29:36 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:29:47 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:29:47 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:29:50 **** Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:29:51 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:49:54 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:49:55 **** Incremental Build of configuration Nios II for project custom_component_bsp ****
+make all 
+[BSP build complete]
+12:50:03 **** Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]
+12:50:04 **** Incremental Build of configuration Nios II for project custom_component ****
+make all 
+Info: Building ../custom_component_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../custom_component_bsp/
+[BSP build complete]
+[custom_component build complete]

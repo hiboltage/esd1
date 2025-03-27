@@ -1,0 +1,84 @@
+/*
+ * lab6_part2.c
+ *
+ *  Created on: Mar 25, 2025
+ *      Author: steven bolt
+ */
+
+typedef unsigned int		uint32;
+typedef unsigned short		uint16;
+typedef unsigned char		uint8;
+
+#define LEDS_ADDRESS 		0x9010
+
+uint32* leds = (uint32*)LEDS_ADDRESS;	//pointer to leds
+
+void byte_ram_test(uint8 start_addr, int num_bytes, uint8 test_data){
+	uint8 read = 0x00;
+	uint8* byte_ptr = (uint8*)start_addr;		// point to starting address
+
+	for(int i=0; i < num_bytes; i++){
+		*byte_ptr + i = test_data;		// write data to location at start address offset by i bytes
+	}
+
+	for(int i=0; i < num_bytes; i++){
+		read = *byte_ptr + i;	// read data from start address offset by i bytes
+
+		if(read != test_data){	// if data does not match input, turn on error leds
+			*leds = 0x00000000;		// turn all leds red
+		}
+	}
+
+}
+
+void short_ram_test(uint16 start_addr, int num_bytes, uint16 test_data){
+	uint16 read = 0x0000;						// return test value
+	uint16* short_ptr = (uint16*)start_addr;	// point to starting address
+
+	for(int i=0; i < num_bytes; i++){
+		*short_ptr + i = test_data;		// write data to location at start address offset by i*2 bytes
+	}
+
+	for(int i=0; i < num_bytes; i++){
+		short_result[i] = *short_ptr + i;	// read data from start address offset by i*2 bytes
+
+		if(byte != test_data){	// if data does not match input, turn on error leds
+			*leds = 0x00000000;		// turn all leds red
+		}
+	}
+
+}
+
+void int_ram_test(uint32 start_addr, int num_bytes, uint32 test_data){
+	uint32 int_result[num_bytes];		//output array
+
+	uint32* int_ptr = (uint32*)start_addr;		// point to starting address
+
+	for(int i=0; i < num_bytes; i++){
+		*int_ptr + i = test_data;		// write data to location at start address offset by i*4 bytes
+	}
+
+	for(int i=0; i < num_bytes; i++){
+		int_result[i] = *int_ptr + i;	// read data from start address offset by i*4 bytes
+
+		if(byte != test_data){	// if data does not match input, turn on error leds
+			*leds = 0x00000000;		// turn all leds red
+		}
+	}
+
+}
+
+void main(){
+	uint8 byte_data = 0xFF;
+	uint8 byte_base = 0x00;
+
+	uint16 short_data = 0x1234;
+	uint16 short_base = 0x0000;
+
+	uint32 int_data = 0x87654321;
+	uint32 int_base = 0x00000000;
+
+	/*if (byte_ram_test(byte_base, 4, byte_data) != byte_data){	// (FIX THIS) if read data does not match written data
+		*leds = 0x00000000;		// turn all leds red
+	}*/
+}

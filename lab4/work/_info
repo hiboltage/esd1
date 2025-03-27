@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+Elab4
+Z0 w1742351348
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 dC:/Users/steve/ESD1/lab4
+Z7 8C:\Users\steve\ESD1\lab4\lab4.vhd
+Z8 FC:\Users\steve\ESD1\lab4\lab4.vhd
+l0
+L9
+VU9P?RHQLYc=CKAH>[5ze;0
+!s100 08^d_NSDBg^TLBDVonj0>1
+Z9 OV;C;10.5b;63
+32
+Z10 !s110 1742352138
+!i10b 1
+Z11 !s108 1742352138.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\steve\ESD1\lab4\lab4.vhd|
+Z13 !s107 C:\Users\steve\ESD1\lab4\lab4.vhd|
+!i113 1
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
+Alab4arch
+R1
+R2
+R3
+R4
+R5
+DEx4 work 4 lab4 0 22 U9P?RHQLYc=CKAH>[5ze;0
+l38
+L20
+VV`K:UNGXi^2hW?AYFHX@<1
+!s100 YHYnR98TZEb^T<[V<nZ][1
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Elab4_tb
+Z16 w1742352122
+R1
+R2
+R3
+R4
+R5
+R6
+Z17 8C:\Users\steve\ESD1\lab4\lab4_tb.vhd
+Z18 FC:\Users\steve\ESD1\lab4\lab4_tb.vhd
+l0
+L9
+VXDGLRHDFI;TNE:@20M_E:1
+!s100 ^BK7BW8_lEj12I<gXghQR3
+R9
+32
+R10
+!i10b 1
+R11
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\steve\ESD1\lab4\lab4_tb.vhd|
+Z20 !s107 C:\Users\steve\ESD1\lab4\lab4_tb.vhd|
+!i113 1
+R14
+R15
+Alab4_tbarch
+R1
+R2
+R3
+R4
+R5
+Z21 DEx4 work 7 lab4_tb 0 22 XDGLRHDFI;TNE:@20M_E:1
+l35
+L12
+VdL]1L=PGj?9PkmgE_Uz?F3
+!s100 4cc?zf[l=Yi7cYo3hOVF22
+R9
+32
+R10
+!i10b 1
+R11
+R19
+R20
+!i113 1
+R14
+R15

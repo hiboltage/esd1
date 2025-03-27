@@ -15,6 +15,10 @@ select the vector tab and change the reset and exception vectors to onchip_memor
 system -> assign base addresses
 DONT FORGET TO EXPORT EXTERNAL CONNECTIONS
 
+before synthesis
+add the .qip file ([platform_name]/synthesis)
+import pin assignments
+
 programming
 click auto detect
 select 5CSEMA5
