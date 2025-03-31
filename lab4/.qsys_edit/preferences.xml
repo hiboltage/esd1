@@ -3,11 +3,11 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="143" />
+   <connections preferredWidth="127" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library" />
+ <library expandedCategories="Project/ESDI_IP,Library,Project" />
  <window width="1918" height="1018" x="1" y="1" />
  <generation synthesis="VHDL" />
 </preferences>

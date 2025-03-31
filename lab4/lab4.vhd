@@ -9,7 +9,7 @@ use ieee.numeric_std.all;
 entity lab4 is
   port (
 	CLK			: in  std_logic;
-	KEY			: in 	std_logic;
+	RESET_N		: in 	std_logic;
 	WRITE			: in 	std_logic;
 	ADDRESS		: in 	std_logic;
 	WRITEDATA 	: in 	std_logic_vector(31 downto 0);
@@ -18,24 +18,6 @@ entity lab4 is
 end entity lab4;
 
 architecture lab4Arch of lab4 is
-
-	-- nios 2 component
-	entity nios_system is
-		port (
-			clk_clk                  : in  std_logic                     := '0';             --             clk.clk
-			gpio_export_export       : out std_logic_vector(31 downto 0);                    --     gpio_export.export
-			out_wave_export_out_wave : out std_logic;                                        -- out_wave_export.out_wave
-			pb_export_export         : in  std_logic_vector(3 downto 0)  := (others => '0'); --       pb_export.export
-			reset_reset_n            : in  std_logic                     := '0';             --           reset.reset_n
-			sw_export_export         : in  std_logic_vector(9 downto 0)  := (others => '0')  --       sw_export.export
-		);
-	end entity nios_system;
-	
-	-- reset signals
-	signal reset_n : std_logic;
-	signal key0_d1 : std_logic;
-	signal key0_d2 : std_logic;
-	signal key0_d3 : std_logic;
 	
 	-- register signals
 	signal min_count 		: unsigned(31 downto 0) := x"0000C350";	-- 50,000 counts
@@ -55,20 +37,10 @@ architecture lab4Arch of lab4 is
 	
 begin
 
-	----- synchronize the reset
-	synchReset_proc : process (CLOCK_50) begin
-	 if (rising_edge(CLOCK_50)) then
-		key0_d1 <= KEY(0);
-		key0_d2 <= key0_d1;
-		key0_d3 <= key0_d2;
-	 end if;
-	end process synchReset_proc;
-	reset_n <= key0_d3;
-
 	-- current state gets next state (clocked process)
-	currentstate : process(CLK, reset_n)
+	currentstate : process(CLK, RESET_N)
 	begin	
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			state <= SWEEP_RIGHT;
 	
 		elsif rising_edge(CLK) then
@@ -126,10 +98,10 @@ begin
 	end process;
 
 	-- irq process
-	interrupt : process(reset_n, state) is
+	interrupt : process(RESET_N, state) is
 	begin
 	
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			IRQ <= '0';
 
 		elsif state = INT_RIGHT then		-- if right interrupt reached
@@ -148,11 +120,11 @@ begin
 	-- register process
 	-- if write is high, check which address should be written to
 	-- then write WRITEDATA to that address
-	registers : process(CLK, reset_n, WRITE) is
+	registers : process(CLK, RESET_N, WRITE) is
 	begin
 	
 		-- reset to default min/max values
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			min_count <= x"0000C350";
 			max_count <= x"000186A0";
 			
@@ -176,11 +148,11 @@ begin
 	end process;
 	
 	-- period clock
-	period : process(CLK, reset_n) is
+	period : process(CLK, RESET_N) is
 	begin
 	
 		-- reset count to zero
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			period_count <= x"00000000";
 		
 		-- every clock cycle count up until period_stop then reset
@@ -199,11 +171,11 @@ begin
 	end process;
 	
 	-- angle clock
-	angle : process(CLK, reset_n) is
+	angle : process(CLK, RESET_N) is
 	begin
 	
 		-- reset count to min_count
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			angle_count <= min_count;
 	
 		-- wait for period count to reset and then increase/decrease angle
@@ -247,10 +219,10 @@ begin
 	end process;
 	
 	-- output waveform
-	wave : process(CLK, reset_n) is
+	wave : process(CLK, RESET_N) is
 	begin
 		-- reset output wave
-		if reset_n = '0' then
+		if RESET_N = '0' then
 			OUT_WAVE <= '0';
 	
 		elsif rising_edge(CLK) then
@@ -268,17 +240,5 @@ begin
 		end if;
 		
 	end process;
-	
-	-- nios 2 component
-	servo_controller_inst_0 : component nios_system
-		port map (
-			clk             => CLOCK_50,  	--            clock.clk
-			reset_n         => reset_n,   	--            reset.reset_n
-			write           => WRITE,      	--   avalon_slave_0.write
-			address         => ADDRESS(0), 	--                 .address
-			writedata       => WRITEDATA,  	--                 .writedata
-			out_wave_export => OUT_WAVE, 		--      conduit_end.out_wave
-			irq             => IRQ				-- interrupt_sender.irq
-		);
 		
 end architecture lab4Arch;
