@@ -162,7 +162,7 @@ begin
 				period_count <= x"00000000";
 				
 			else
-				period_count <= period_count + x"2710";	-- increment period_count by 10,000
+				period_count <= period_count + 1;	-- increment period_count by 1
 				
 			end if;
 			
@@ -190,7 +190,7 @@ begin
 							angle_count <= max_count;				-- reset angle_count to max
 						
 						else
-							angle_count <= angle_count + x"2710";	-- increase servo angle by 10,000
+							angle_count <= angle_count + x"01F4";	-- increase servo angle by 500
 						
 						end if;
 				
@@ -199,7 +199,7 @@ begin
 							angle_count <= min_count;				-- reset angle_count to minimum
 					
 						else
-							angle_count <= angle_count - x"2710";	-- decrease servo angle by 10,000
+							angle_count <= angle_count - x"01F4";	-- decrease servo angle by 500
 						
 						end if;
 					

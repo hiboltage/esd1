@@ -8,6 +8,7 @@ use ieee.numeric_std.all;
 entity lab4_part2 is
 	port (
 		CLOCK_50		: in 	std_logic;
+		LEDR			: out std_logic_vector(9 downto 0);
 		GPIO_0		: out std_logic_vector(35 downto 0));	-- declare gpio_0 signals
 end entity lab4_part2;
 
@@ -41,6 +42,7 @@ begin
 			write			=> write_in,
 			address		=> addr_in,
 			writedata	=> wrtdata_in,
+			irq 			=> LEDR(0),
 			out_wave		=> GPIO_0(2)
 		);
 		
