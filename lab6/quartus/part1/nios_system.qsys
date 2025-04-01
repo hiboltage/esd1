@@ -162,12 +162,12 @@
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
-   name="key1_export"
+   name="key"
    internal="key1.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="leds_export"
+   name="leds"
    internal="leds.external_connection"
    type="conduit"
    dir="end" />
@@ -223,7 +223,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="10" />
  </module>
  <module
    name="nios2_gen2_0"

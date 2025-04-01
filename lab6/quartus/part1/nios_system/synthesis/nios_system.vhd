@@ -8,9 +8,9 @@ use IEEE.numeric_std.all;
 
 entity nios_system is
 	port (
-		clk_clk            : in  std_logic                    := '0'; --         clk.clk
-		key1_export_export : in  std_logic                    := '0'; -- key1_export.export
-		leds_export_export : out std_logic_vector(7 downto 0)         -- leds_export.export
+		clk_clk     : in  std_logic                    := '0'; --  clk.clk
+		key_export  : in  std_logic                    := '0'; --  key.export
+		leds_export : out std_logic_vector(9 downto 0)         -- leds.export
 	);
 end entity nios_system;
 
@@ -60,7 +60,7 @@ architecture rtl of nios_system is
 			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			chipselect : in  std_logic                     := 'X';             -- chipselect
 			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
-			out_port   : out std_logic_vector(7 downto 0)                      -- export
+			out_port   : out std_logic_vector(9 downto 0)                      -- export
 		);
 	end component nios_system_leds;
 
@@ -409,7 +409,7 @@ begin
 			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
 			address  => mm_interconnect_0_key1_s1_address,        --                  s1.address
 			readdata => mm_interconnect_0_key1_s1_readdata,       --                    .readdata
-			in_port  => key1_export_export                        -- external_connection.export
+			in_port  => key_export                                -- external_connection.export
 		);
 
 	leds : component nios_system_leds
@@ -421,7 +421,7 @@ begin
 			writedata  => mm_interconnect_0_leds_s1_writedata,       --                    .writedata
 			chipselect => mm_interconnect_0_leds_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_leds_s1_readdata,        --                    .readdata
-			out_port   => leds_export_export                         -- external_connection.export
+			out_port   => leds_export                                -- external_connection.export
 		);
 
 	nios2_gen2_0 : component nios_system_nios2_gen2_0

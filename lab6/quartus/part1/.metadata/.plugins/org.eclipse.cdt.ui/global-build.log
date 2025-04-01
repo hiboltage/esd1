@@ -1,0 +1,238 @@
+14:02:02 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5664 Bytes program size (code + initialized data).
+Info:                      9992 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:03:03 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+lab6_part2.c: In function 'int_ram_test':
+lab6_part2.c:72:12: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+    *leds = 0x1111111111; // turn all leds red
+            ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5668 Bytes program size (code + initialized data).
+Info:                      9988 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:03:04 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:04:16 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5668 Bytes program size (code + initialized data).
+Info:                      9988 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:04:18 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:04:39 **** Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:04:41 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:08:51 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5668 Bytes program size (code + initialized data).
+Info:                      9988 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:17:51 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5668 Bytes program size (code + initialized data).
+Info:                      9988 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:18:56 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:18:57 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:19:03 **** Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:19:04 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:23:22 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5648 Bytes program size (code + initialized data).
+Info:                      10008 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:23:24 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:23:28 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
+14:27:22 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:41:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5644 Bytes program size (code + initialized data).
+Info:                      10012 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:27:23 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:27:58 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+Info: Compiling lab6_part2.c to obj/default/lab6_part2.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part2_APP_bsp//HAL/inc -I../lab6_part2_APP_bsp/ -I../lab6_part2_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part2.o lab6_part2.c
+lab6_part2.c: In function 'byte_ram_test':
+lab6_part2.c:20:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   byte_ptr = start_addr + i;  // offset from start address by i bytes
+            ^
+lab6_part2.c: In function 'short_ram_test':
+lab6_part2.c:42:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   short_ptr = start_addr + i;  // offset from start address by i*2 bytes
+             ^
+Info: Linking lab6_part2_APP.elf
+nios2-elf-g++  -T'../lab6_part2_APP_bsp//linker.x' -msys-crt0='../lab6_part2_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part2_APP_bsp/  -msmallc  -Wl,-Map=lab6_part2_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part2_APP.elf obj/default/lab6_part2.o -lm -msys-lib=m
+nios2-elf-insert lab6_part2_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 272 --sidp 0x9020 --timestamp 1743527535 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part1" --jdi ../..//output_files/lab6_part1.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part1/software/lab6_part2_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part2_APP.elf) 5644 Bytes program size (code + initialized data).
+Info:                      10012 Bytes free for stack + heap.
+Info: Creating lab6_part2_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part2_APP.elf >lab6_part2_APP.objdump
+[lab6_part2_APP build complete]
+14:28:00 **** Incremental Build of configuration Nios II for project lab6_part2_APP_bsp ****
+make all 
+[BSP build complete]
+14:28:04 **** Incremental Build of configuration Nios II for project lab6_part2_APP ****
+make all 
+Info: Building ../lab6_part2_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part2_APP_bsp/
+[BSP build complete]
+[lab6_part2_APP build complete]
