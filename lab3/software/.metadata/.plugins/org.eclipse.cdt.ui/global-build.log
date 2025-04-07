@@ -1,0 +1,18 @@
+12:02:39 **** Incremental Build of configuration Nios II for project lab_3_APP ****
+make all 
+Info: Building ../lab_3_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab_3_APP_bsp/
+[BSP build complete]
+[lab_3_APP build complete]
+12:02:44 **** Incremental Build of configuration Nios II for project lab_3_APP ****
+make all 
+Info: Building ../lab_3_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab_3_APP_bsp/
+[BSP build complete]
+[lab_3_APP build complete]
+12:08:09 **** Incremental Build of configuration Nios II for project lab_3_APP ****
+make all 
+Info: Building ../lab_3_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab_3_APP_bsp/
+[BSP build complete]
+[lab_3_APP build complete]

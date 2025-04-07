@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;lab_3_APP/pb_timer_int&apos; to &apos;pb_timer_int.c&apos;" description="Rename resource &apos;pb_timer_int&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="pb_timer_int" name="pb_timer_int.c" stamp="1743647014780" updateReferences="true"/>
+</session>
