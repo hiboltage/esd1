@@ -9,17 +9,17 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
 entity raminfr_be_tb is
-end entity raminr_be_tb;
+end entity raminfr_be_tb;
 
-architecture be_tb_arch of raminfr_be is
+architecture be_tb_arch of raminfr_be_tb is
 
 	-- testbench signals
-	signal clk_in	  : in std_logic := '0';
-	signal rst_in     : in std_logic := '1';
-	signal wrt_in	  : in std_logic_vector(3 downto 0) := b"1111";
-	signal addr_in    : in std_logic_vector(11 downto 0) := x"000";
-	signal wrtdata_in : in std_logic_vector(31 downto 0) := x"12345678";
-	signal rddata_out : out std_logic_vector(31 downto 0));
+	signal clk_in	  : std_logic := '0';
+	signal rst_in     : std_logic := '1';
+	signal wrt_in	  : std_logic_vector(3 downto 0) := b"1110";
+	signal addr_in    : std_logic_vector(11 downto 0) := x"000";
+	signal wrtdata_in : std_logic_vector(31 downto 0) := x"12345678";
+	signal rddata_out : std_logic_vector(31 downto 0);
 
 	-- byte-enabled inferred ram component declaration
 	component raminfr_be is
@@ -29,12 +29,13 @@ architecture be_tb_arch of raminfr_be is
 			writebyteenable_n	: in std_logic_vector(3 DOWNTO 0);
 			address			: in std_logic_vector(11 DOWNTO 0);
 			writedata		: in std_logic_vector(31 DOWNTO 0);
-			readdata		: out std_logic_vector(31 DOWNTO 0)):
+			readdata		: out std_logic_vector(31 DOWNTO 0));
+	end component raminfr_be;
 
 begin
 
 	-- uut instantiation
-	uut : component raminfr_be is
+	uut : component raminfr_be
 		port map(
 			clk => clk_in,
 			reset_n => rst_in,

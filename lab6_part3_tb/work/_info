@@ -9,25 +9,111 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 Eraminfr_be
-w1743544563
-DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-dC:/Users/steve/classes/ESD1/lab6_part3_tb
-8C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd
-FC:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd
+Z0 w1744054248
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/steve/classes/ESD1/lab6_part3_tb
+Z6 8C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd
+Z7 FC:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd
 l0
 L11
 Vb3>zR;]F6h0aA@iBnn9>20
 !s100 13?miQ]2]Z`>W<2OFW5<N1
-OV;C;10.5b;63
+Z8 OV;C;10.5b;63
 32
-!s110 1743544579
+Z9 !s110 1744054254
 !i10b 1
-!s108 1743544579.000000
-!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd|
-!s107 C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd|
+Z10 !s108 1744054254.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd|
+Z12 !s107 C:/Users/steve/classes/ESD1/lab6/quartus/part3/ip/ram_be/raminfr_be.vhd|
 !i113 1
-o-work work -2002 -explicit
-tExplicit 1 CvgOpt 0
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+R4
+Z15 DEx4 work 10 raminfr_be 0 22 b3>zR;]F6h0aA@iBnn9>20
+l38
+L22
+Vb9X4Ado=IiZL<CmdOmX`J3
+!s100 ocMkbIA23=`RJdVB6k7iE1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Abe_tb_arch
+w1744049365
+R1
+R2
+R3
+R4
+R15
+Z16 8C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd
+Z17 FC:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd
+l35
+L14
+V<OK1T0gmMB776=30ok9<j3
+!s100 _P=`R;K4@TA;BV:Yzn2ZK3
+R8
+32
+!s110 1744049542
+!i10b 1
+!s108 1744049542.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd|
+Z19 !s107 C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd|
+!i113 1
+R13
+R14
+Eraminfr_be_tb
+Z20 w1744049635
+R1
+R2
+R3
+R4
+R5
+R16
+R17
+l0
+L11
+Vd>fOQ6?:FFC0S7W=WbZo50
+!s100 LVV<HadQN>ANZ06SjQcSM1
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Abe_tb_arch
+R1
+R2
+R3
+R4
+Z21 DEx4 work 13 raminfr_be_tb 0 22 d>fOQ6?:FFC0S7W=WbZo50
+l35
+L14
+Z22 VlUcA54<kk<6G03F9eQ?EY2
+Z23 !s100 c8DJD:>6b@cefU[`VNcN=2
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
