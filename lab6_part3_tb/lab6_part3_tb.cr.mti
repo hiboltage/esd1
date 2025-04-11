@@ -1,4 +1,4 @@
-C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd
+C:/Users/steve/classes/ESD1/lab6_part3_tb/raminfr_be_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\steve\classes\ESD1\lab6_part3_tb\raminfr_be_tb.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO

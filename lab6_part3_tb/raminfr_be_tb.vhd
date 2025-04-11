@@ -16,7 +16,7 @@ architecture be_tb_arch of raminfr_be_tb is
 	-- testbench signals
 	signal clk_in	  : std_logic := '0';
 	signal rst_in     : std_logic := '1';
-	signal wrt_in	  : std_logic_vector(3 downto 0) := b"1110";
+	signal wrt_in	  : std_logic_vector(3 downto 0) := b"1100";
 	signal addr_in    : std_logic_vector(11 downto 0) := x"000";
 	signal wrtdata_in : std_logic_vector(31 downto 0) := x"12345678";
 	signal rddata_out : std_logic_vector(31 downto 0);
