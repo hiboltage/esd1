@@ -1,0 +1,41 @@
+//
+// file: lab6_part4.c
+// date: 4/11/2025
+// auth: Steven Bolt
+//
+
+#include <stdio.h>
+#include "system.h"
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+#define RAM_START	0x000
+#define RAM_END		0xFFF
+
+void byte_ram_test(uint16 address, , uint8 test_data){
+	uint8 read = 0x00;						// return value for verification
+	uint8 *byte_ptr = (uint8*)start_addr;	// point to starting address
+
+	for(int i=0; i < num_bytes; i++){
+		byte_ptr = start_addr + i;		// offset from start address by i bytes
+		*byte_ptr = test_data;			// write data to offset address
+	}
+
+	*byte_ptr = start_addr;		// reset to starting adddress
+	for(int i=0; i < num_bytes; i++){
+		read = (*byte_ptr + i);		// read data from start address offset by i bytes
+
+		if(read != test_data){		// if read data does not match input
+			*leds = 0x00000000;		// turn all leds red
+		}
+
+	}
+
+}

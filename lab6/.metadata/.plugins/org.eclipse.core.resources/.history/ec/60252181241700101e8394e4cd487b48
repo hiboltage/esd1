@@ -1,0 +1,57 @@
+//
+// file: lab6_part4.c
+// date: 4/11/2025
+// auth: Steven Bolt
+//
+
+#include <stdio.h>
+#include "system.h"
+
+#define RAM_SIZE	4096
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+// pointer to leds
+volatile uint32 *ledPtr = (uint32*)LEDS_BASE;
+
+// function that starts from a provided address and writes
+// to the end of the ram in bytes
+// address: starting memory address
+// testData: data to write to memory
+// ramSize: size of memory
+void test_a(uint16 address, uint32 testData, int ramSize){
+	uint8 *bytePtr = 0x00;	// pointer that increments by bytes
+	uint8 read = 0x00;		// variable for reading values back from memory
+
+	for (int i = address; i <= ramSize; i++){	// write to all requested memory locations
+		*(bytePtr + i) = testData;
+	}
+
+	for (int i = address; i <= ramSize; i++){	// read from all requested memory locations
+		read = *(bytePtr + i);
+
+		if (read != testData){	// if read data does not match write
+			printf("ERROR: Address:%f Read:%f Expected:%f\n", , read, testData);)
+		}
+
+	}
+
+}
+
+int main(){
+
+	while(1){	// program loop
+
+		test_a(0x000, 0xAB, RAM_SIZE);
+
+	}
+
+	return 0;
+}

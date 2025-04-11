@@ -12,8 +12,8 @@ ENTITY lab6_part3 IS
 
   port (
     CLOCK_50	: in  std_logic;
-	 KEY        : in  std_logic;
-    LEDR       : out std_logic_vector(9 downto 0));
+	 KEY        : in  std_logic_vector(3 downto 0);
+    LEDR       : out std_logic_vector(7 downto 0));
 	
 END ENTITY lab6_part3;
 
@@ -23,8 +23,8 @@ ARCHITECTURE part3_arch OF lab6_part3 IS
 	component nios_system is
 		port (
 			clk_clk     : in  std_logic                    := 'X'; -- clk
-			key_export  : in  std_logic                    := 'X'; -- export
-			leds_export : out std_logic_vector(9 downto 0)         -- export
+			key1_export : in  std_logic                    := 'X'; -- export
+			leds_export : out std_logic_vector(7 downto 0)         -- export
 		);
 	end component nios_system;
 	
@@ -34,8 +34,9 @@ BEGIN
 	u0 : component nios_system
 		port map (
 			clk_clk     => CLOCK_50,     --  clk.clk
-			key_export  => KEY,  --  key.export
-			leds_export => LEDR(9 downto 0)  -- leds.export
+			key1_export => KEY(1), -- key1.export
+			leds_export => LEDR  -- leds.export
 		);
-	
+
+
 END ARCHITECTURE part3_arch;

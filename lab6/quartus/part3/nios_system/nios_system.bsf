@@ -51,7 +51,7 @@ refer to the applicable agreement for further details.
 		(text "export" (rect 101 107 238 224)(font "Arial" (color 0 0 0)))
 		(text "leds" (rect 73 123 170 259)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "export" (rect 101 147 238 304)(font "Arial" (color 0 0 0)))
-		(text " system " (rect 205 168 458 346)(font "Arial" ))
+		(text " nios_system " (rect 182 168 442 346)(font "Arial" ))
 		(line (pt 96 32)(pt 144 32)(line_width 1))
 		(line (pt 144 32)(pt 144 168)(line_width 1))
 		(line (pt 96 168)(pt 144 168)(line_width 1))

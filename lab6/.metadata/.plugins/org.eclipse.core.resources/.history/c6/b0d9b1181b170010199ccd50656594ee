@@ -1,0 +1,29 @@
+//
+// file: lab6_part4.c
+// date: 4/11/2025
+// auth: Steven Bolt
+//
+
+#include <stdio.h>
+#include "system.h"
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+// pointer to leds
+volatile uint32 *ledPtr = (uint32*)LEDS_BASE;
+
+void test_a(uint16 address, uint32 testData, uint32 ramSize){
+	uint8 *bytePtr = 0x00;	// pointer that increments by bytes
+
+	for (int i = address; i < ramSize; i++){
+
+	}
+
+}
