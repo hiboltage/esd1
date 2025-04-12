@@ -28,6 +28,8 @@ ARCHITECTURE part1_arch OF lab6_part1 IS
 		);
 	end component nios_system;
 	
+	-- multiplier component
+	
 BEGIN
 	
 	-- nios 2 component port map
