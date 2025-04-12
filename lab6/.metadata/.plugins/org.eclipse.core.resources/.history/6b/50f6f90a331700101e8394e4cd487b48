@@ -1,0 +1,78 @@
+//
+// file: lab6_part4.c
+// date: 4/11/2025
+// auth: Steven Bolt
+//
+
+#include <stdio.h>
+#include "system.h"
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+// pointer to leds
+volatile uint32 *ledPtr = (uint32*)LEDS_BASE;
+
+// function that starts from a provided address and writes
+// to the end of the ram in bytes
+// address: starting memory address
+// testData: data to write to memory
+// ramSize: size of memory
+void test_a(uint16 address, uint32 testData, int ramSize){
+	uint8 *bytePtr = (uint8*)address;	// pointer that increments by bytes
+	uint8 read = 0x00;					// variable for reading values back from memory
+
+	for (int i = (int)address; i <= ramSize; i++){	// write to all requested memory locations
+		*(bytePtr + i) = testData;
+	}
+
+	for (int i = (int)address; i <= ramSize; i++){	// read from all requested memory locations
+		read = *(bytePtr + i);
+
+		if (read != testData){	// if read data does not match write
+			printf("ERROR:  Address: 0x%08x   Read: 0x%02x   Expected: 0x%02x \n", address+i, read, testData);
+		}
+
+	}
+
+}
+
+// same functionality as test_a, but now tests half word storage
+void test_b(uint16 address, uint32 testData, int ramSize){
+	uint16 *hwordPtr = (uint16*)address;
+	uint16 read = 0x0000;
+
+	for (int i = (int)address; i <= ramSize; i++){	// write to all requested memory locations
+		*(hwordPtr + i) = testData;
+	}
+
+	for (int i = (int)address; i <= ramSize; i++){	// read from all requested memory locations
+		read = *(hwordPtr + i);
+
+		if (read != testData){	// if read data does not match write
+			printf("ERROR:  Address: 0x%08p   Read: 0x%04x   Expected: 0x%04x \n", (hwordPtr+i), read, testData);
+		}
+
+	}
+
+}
+
+int main(){
+	*ledPtr = 0x00;	// clear leds
+	test_a(0x000, 0x00, 4095);	// clear memory
+
+	while(1){	// program loop
+
+		//test_a(0x000, 0x00, 4095);
+		test_b(0x000, 0x1234, 2047);
+
+	}
+
+	return 0;
+}

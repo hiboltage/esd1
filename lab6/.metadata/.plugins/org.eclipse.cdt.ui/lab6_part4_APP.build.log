@@ -1,9 +1,41 @@
-18:39:56 **** Incremental Build of configuration Nios II for project lab6_part4_APP ****
+21:02:05 **** Incremental Build of configuration Nios II for project lab6_part4_APP ****
 make all 
 Info: Building ../lab6_part4_APP_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab6_part4_APP_bsp/
 [BSP build complete]
+Info: Compiling lab6_part4.c to obj/default/lab6_part4.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab6_part4_APP_bsp//HAL/inc -I../lab6_part4_APP_bsp/ -I../lab6_part4_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lab6_part4.o lab6_part4.c
+lab6_part4.c: In function 'test_a':
+lab6_part4.c:43:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint8 * {aka unsigned char *}' [-Wformat=]
+    printf("ERROR:  Address: 0x%08x   Read: 0x%02x   Expected: 0x%02x \n", bytePtr+i, read, testData);
+           ^
+lab6_part4.c:43:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c:43:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint8 * {aka unsigned char *}' [-Wformat=]
+lab6_part4.c:43:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c: In function 'test_b':
+lab6_part4.c:66:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint16 * {aka short unsigned int *}' [-Wformat=]
+    printf("ERROR:  Address: 0x%08x   Read: 0x%04x   Expected: 0x%04x \n", hwordPtr+i, read, testData);
+           ^
+lab6_part4.c:66:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c:66:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint16 * {aka short unsigned int *}' [-Wformat=]
+lab6_part4.c:66:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c: In function 'test_c':
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32 * {aka long unsigned int *}' [-Wformat=]
+    printf("ERROR:  Address: 0x%08x   Read: 0x%08x   Expected: 0x%08x \n", wordPtr+i, read, testData);
+           ^
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32 * {aka long unsigned int *}' [-Wformat=]
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+lab6_part4.c:89:11: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+Info: Linking lab6_part4_APP.elf
+nios2-elf-g++  -T'../lab6_part4_APP_bsp//linker.x' -msys-crt0='../lab6_part4_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab6_part4_APP_bsp/  -msmallc  -Wl,-Map=lab6_part4_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab6_part4_APP.elf obj/default/lab6_part4.o -lm -msys-lib=m
+nios2-elf-insert lab6_part4_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 273 --sidp 0x9020 --timestamp 1744394992 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab6/quartus/part3" --jdi ../..//output_files/lab6_part3.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab6/quartus/part3/software/lab6_part4_APP_bsp/../../nios_system.sopcinfo
+Info: (lab6_part4_APP.elf) 8860 Bytes program size (code + initialized data).
+Info:                      6792 Bytes free for stack + heap.
+Info: Creating lab6_part4_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab6_part4_APP.elf >lab6_part4_APP.objdump
 [lab6_part4_APP build complete]
 
-18:39:56 Build Finished (took 742ms)
+21:02:07 Build Finished (took 1s.451ms)
 
