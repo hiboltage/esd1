@@ -37,7 +37,7 @@ volatile uint32* timer 		= (uint32*)TIMER_0_BASE;
 volatile uint32* leds		= (uint32*)LEDS_BASE;			// output (non-volatile)
 volatile uint32* hex0 		= (uint32*)HEX0_BASE;			// output (non-volatile)
 volatile uint32* sw	= (uint32*)SWITCHES_BASE;		// input (volatile)
-volatile uint32* pb = (uint32*)PUSHBUTTONS_BASE;	// input (volatile)r
+volatile uint32* pb = (uint32*)PUSHBUTTONS_BASE;	// input (volatile)
 
 uint8 dispNums[] = {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};	// index of display numbers
 uint8 dispNum = 0;	// dispNums[dispNum]
