@@ -44,7 +44,7 @@ ENTITY mult IS
 	(
 		dataa		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		datab		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		result	: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+		result	: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 	);
 END mult;
 
@@ -67,12 +67,12 @@ ARCHITECTURE SYN OF mult IS
 	PORT (
 			dataa	: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 			datab	: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-			result	: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+			result	: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 	);
 	END COMPONENT;
 
 BEGIN
-	result    <= sub_wire0(30 DOWNTO 15);
+	result    <= sub_wire0;
 
 	lpm_mult_component : lpm_mult
 	GENERIC MAP (
@@ -86,7 +86,7 @@ BEGIN
 	PORT MAP (
 		dataa => dataa,
 		datab => datab,
-		result => sub_wire0(30 downto 15)
+		result => sub_wire0
 	);
 
 

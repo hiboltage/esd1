@@ -1,23 +1,23 @@
 -----------------------------------------------------
--- file: low_pass_filter.vhd
+-- file: high_pass_filter.vhd
 -- author: steven bolt
--- date: 4/10/2025
+-- date: 4/16/2025
 -----------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity low_pass_filter is
+entity high_pass_filter is
 	port(
 		clk		 : in  std_logic;
 		reset_n	 : in  std_logic;
 		filter_en : in  std_logic;
 		data_in 	 : in  std_logic_vector(15 downto 0);
 		data_out	 : out std_logic_vector(15 downto 0));
-end low_pass_filter;
+end high_pass_filter;
 
-architecture behavioral of low_pass_filter is
+architecture behavioral of high_pass_filter is
 
 	-- coefficient array
 	type coeff_type is array(16 downto 0) of std_logic_vector(15 downto 0);
@@ -52,23 +52,23 @@ architecture behavioral of low_pass_filter is
 begin
 	
 	-- build coefficient array (MAKE CONSTANTS ??)
-	S(0)  <= x"0051";	-- 0.0025
-	S(1)  <= x"00BA";	-- 0.0057
-	S(2)  <= x"01E1";	-- 0.0147
-	S(3)  <= x"0408";	-- 0.0315
-	S(4)  <= x"071A"; -- 0.0555
-	S(5)  <= x"0AAC"; -- 0.0834
-	S(6)  <= x"0E11"; -- 0.1099
-	S(7)  <= x"107F"; -- 0.1289
-	S(8)  <= x"1161"; -- 0.1358
-	S(9)  <= x"107F"; -- 0.1289
-	S(10) <= x"0E11"; -- 0.1099
-	S(11) <= x"0AAC"; -- 0.0834
-	S(12) <= x"071A"; -- 0.0555
-	S(13) <= x"0408"; -- 0.0315
-	S(14) <= x"01E1"; -- 0.0147
-	S(15) <= x"00BA"; -- 0.0057
-	S(16) <= x"0051"; -- 0.0025
+	S(0)  <= x"003E";
+	S(1)  <= x"FF9B";
+	S(2)  <= x"FE9F";
+	S(3)  <= x"0000";
+	S(4)  <= x"0535";
+	S(5)  <= x"05B2";
+	S(6)  <= x"F5AC";
+	S(7)  <= x"DAB7";
+	S(8)  <= x"4C91";
+	S(9)  <= x"DAB7";
+	S(10) <= x"F5AC";
+	S(11) <= x"05D2";
+	S(12) <= x"0535";
+	S(13) <= x"0000";
+	S(14) <= x"FE9F";
+	S(15) <= x"FF9B";
+	S(16) <= x"003E";
 	
 	-- generate 17 multipliers
 	gen_mult:

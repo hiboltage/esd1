@@ -11,6 +11,8 @@ use ieee.std_logic_unsigned.all;
 -- this is a pipelining register to delay a value by a single clock cycle
 entity reg_en is
 	port(
+		clock				: in  std_logic;
+		reset_n			: in  std_logic;
 		filter_enable	: in  std_logic;
 		filter_in		: in  std_logic_vector(15 downto 0);
 		filter_out		: out std_logic_vector(15 downto 0));	
@@ -20,11 +22,18 @@ architecture behavioral of reg_en is
 
 begin
 	
-	shift : process(filter_enable)
+	shift : process(clock, reset_n)
 	begin
 	
-		if rising_edge(filter_enable) then
-			filter_out <= filter_in;
+		if (reset_n = '0') then
+			filter_out <= (others => '0');
+	
+		elsif rising_edge(clock) then
+		
+			if (filter_enable = '1') then		-- on clock if filter enabled, move data
+				filter_out <= filter_in;
+			end if;
+			
 		end if;
 		
 	end process;
