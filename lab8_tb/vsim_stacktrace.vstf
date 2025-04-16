@@ -1,0 +1,12 @@
+# Current time Tue Apr 15 17:28:16 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "10.5b"
+# Version = "2016.10"
+# Date = "Oct  5 2016"
+# Platform = win32pe
+# Signature = a4da31216fa3031746f0a74423efc007
+# 0    0x69a58fcc: 'Tcl_SetResult + 0xc' in 'c:\intelfpga\18.1\modelsim_ase\win32aloem\tcl85.dll'
+# End of Stack Trace
+
+
