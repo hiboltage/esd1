@@ -17,7 +17,6 @@ entity filter is
       reset_n   	: in  std_logic;
       filter_en  	: in  std_logic;
 		filter_sel 	: in  std_logic;	-- 0 for lpf, 1 for hpf
-		address		: in  std_logic;	-- 0 for data_in, 1 for switch
       data_in 		: in  std_logic_vector(15 downto 0);
       data_out		: out std_logic_vector(15 downto 0));
 end filter;
@@ -106,6 +105,5 @@ begin
 			filter_type  	=> filter_sel,
 			coefficients 	=> coeffs
 		);
-		
 
 end architecture behavioral;

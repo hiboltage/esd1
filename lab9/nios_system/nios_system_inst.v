@@ -19,6 +19,7 @@
 		.sdram_ras_n                 (<connected-to-sdram_ras_n>),                 //          .ras_n
 		.sdram_we_n                  (<connected-to-sdram_we_n>),                  //          .we_n
 		.sdram_clk_clk               (<connected-to-sdram_clk_clk>),               // sdram_clk.clk
-		.sw_export                   (<connected-to-sw_export>)                    //        sw.export
+		.sw_export                   (<connected-to-sw_export>),                   //        sw.export
+		.switches_export             (<connected-to-switches_export>)              //  switches.export
 	);
 

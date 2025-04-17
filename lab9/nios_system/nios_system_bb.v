@@ -20,7 +20,8 @@ module nios_system (
 	sdram_ras_n,
 	sdram_we_n,
 	sdram_clk_clk,
-	sw_export);	
+	sw_export,
+	switches_export);	
 
 	input		AUD_ADCDAT_to_the_audio_0;
 	input		AUD_ADCLRCK_to_the_audio_0;
@@ -43,4 +44,5 @@ module nios_system (
 	output		sdram_we_n;
 	output		sdram_clk_clk;
 	input	[7:0]	sw_export;
+	input	[9:0]	switches_export;
 endmodule
