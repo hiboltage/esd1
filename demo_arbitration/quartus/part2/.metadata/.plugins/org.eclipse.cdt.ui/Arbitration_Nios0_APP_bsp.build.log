@@ -1,0 +1,6 @@
+21:47:29 **** Clean-only build of configuration Nios II for project Arbitration_Nios0_APP_bsp ****
+make clean 
+[BSP clean complete]
+
+21:47:30 Build Finished (took 1s.14ms)
+
