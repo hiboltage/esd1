@@ -1,0 +1,93 @@
+/*
+ * main.c
+ *
+ *  Created on: Apr 25, 2025
+ *      Author: Steven Bolt
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
+#include "system.h"			// include system header for base addresses
+#include "alt_types.h"		// needed for interrupts
+#include "sys/alt_irq.h"	// needed for interrupts
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+volatile uint32* PB_Ptr = (uint32*)PUSHBUTTONS_BASE;	// pointer to pushbuttons base address
+volatile uint32* SW_Ptr = (uint32*)SWITCHES_BASE;		// pointer to switches base address
+uint32* Servo_Ptr = (uint32*)SWITCHES_BASE;		// pointer to servo controller base address
+
+// global variables
+uint8 pb_val = 0x00;	// value of pushbuttons
+uint16 min_angle = 0x0000;
+bool min_angle_flag = false;
+uint16 max_angle = 0x0000;
+bool max_angle_flag = true;
+
+
+void pb_isr(void *context)
+{
+	// read edge capture register
+	pb_val = *(PB_Ptr + 3);
+
+	// clear interrupt
+	*(PB_Ptr + 3) = 0;
+
+	// if KEY3 pressed
+	if (pb_val == 0x08)
+	{
+		// read new minimum angle value from switches
+		min_angle = *SW_Ptr;
+		min_angle_flag = true;
+	}
+
+	// if KEY2 pressed
+	if (pb_val == 0x04)
+	{
+		// read new maximum angle value from switches
+		max_angle = *SW_Ptr;
+	}
+
+}
+
+void servo_isr(void *context)
+{
+	// write angles to servo controller registers
+	*(Servo_Ptr + 0) = min_angle;
+	*(Servo_Ptr + 1) = max_angle;
+}
+
+int main(void)
+{
+	// enable PB interrupts on KEY2 and KEY3 and assign interrupt handler function
+	*(PB_Ptr + 2) = 0x0000000C;
+	alt_ic_isr_register(PUSHBUTTONS_IRQ_INTERRUPT_CONTROLLER_ID,PUSHBUTTONS_IRQ,pb_isr,0,0);
+
+	// enable servo controller interrupts
+	alt_ic_isr_register(SERVO_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID,SERVO_CONTROLLER_0_IRQ,servo_isr,0,0);
+
+	while(1)
+	{
+		// if minimum angle has changed
+		if (min_angle_flag)
+		{
+			// write to display
+			min_angle_flag = false;
+		}
+
+		// if maximum angle has changed
+		if (max_angle_flag)
+		{
+
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,24 @@
+/*
+ * main.c
+ *
+ *  Created on: Apr 25, 2025
+ *      Author: Steven Bolt
+ */
+
+#include "system.h"			// include system header for base addresses
+
+// create standard embedded type definitions
+typedef   signed char   sint8;              // signed 8 bit values
+typedef unsigned char   uint8;              // unsigned 8 bit values
+typedef   signed short  sint16;             // signed 16 bit values
+typedef unsigned short  uint16;             // unsigned 16 bit values
+typedef   signed long   sint32;             // signed 32 bit values
+typedef unsigned long   uint32;             // unsigned 32 bit values
+typedef         float   real32;             // 32 bit real values
+
+int main(void)
+{
+
+
+	return 0;
+}
