@@ -26,7 +26,7 @@ typedef         float   real32;             // 32 bit real values
 
 // Global variables
 #define MAX_SAMPLES 	0x20000  // max sample data (16 bits each) for SDRAM
-#define FIRST_TIME		1	// 1 means it is the first time running, so the file is loaded in SRAM
+#define FIRST_TIME		0	// 1 means it is the first time running, so the file is loaded in SRAM
 
 uint32 ECHO_CNT = 0;		// index into buffer
 uint32 SAMPLE_CNT = 0;		// keep track of which sample is being read from SDRAM
@@ -79,13 +79,13 @@ void timer_isr(void *context)
 			if (sw_val)	// if either switch is active, send to filter
 			{
 				*FiltPtr = left_sample;		// send left_sample to filter
-				*FiltPtr = right_sample;	// send right_sample to filter
+				left_sample = *FiltPtr;		// read filtered left sample
 
-				left_sample = *FiltPtr;		// read filtered samples
-				right_sample = *FiltPtr;
+				*FiltPtr = right_sample;	// send right_sample to filter
+				right_sample = *FiltPtr;	// read filtered right sample
 			}
-			AudioPtr[2] = *FiltPtr;		// in stereo, output left and right samples to board lineout
-			AudioPtr[3] = *FiltPtr;
+			AudioPtr[3] = right_sample;		// in stereo, output left and right samples to board lineout
+			AudioPtr[2] = left_sample;
 		}
 		else	// mono mode
 		{
@@ -94,8 +94,8 @@ void timer_isr(void *context)
 				*FiltPtr = left_sample;		// send left_sample to filter
 				left_sample = *FiltPtr;		// read filtered sample
 			}
-			AudioPtr[3] = *FiltPtr;		// in mono, output same sample to both sides
-			AudioPtr[2] = *FiltPtr;
+			AudioPtr[3] = left_sample;		// in mono, output same sample to both sides
+			AudioPtr[2] = left_sample;
 		}
 
 	}
@@ -130,11 +130,11 @@ void switches_isr(void *context)
 
 	// the switch register takes a 0 for low-pass and a 1 for high-pass
 	// theoretically writing to the base address with an offset (address) of 1 will write to the switch register right ?
-	if (sw_val == 0b01)			// if sw0 enabled, set custom component to low-pass
+	if (sw_val == 0b01)			// if sw0 enabled, set audio filter component to low-pass
 	{
 		*(FiltPtr + 1) = 0;
 	}
-	else if (sw_val == 0b10)	// if sw1 enabled, set custom component to high-pass
+	else if (sw_val == 0b10)	// if sw1 enabled, set audio filter component to high-pass
 	{
 		*(FiltPtr + 1) = 1;
 	}
@@ -214,6 +214,7 @@ int main(void)
 
 	// set up interrupts for switches
 	alt_ic_isr_register(SWITCHES_IRQ_INTERRUPT_CONTROLLER_ID,SWITCHES_IRQ,switches_isr,0,0);
+	*(SwPtr + 2) = 0x00000003;	// enable interrupts on SW0 and SW1
 
 	// initialize timer interrupt 48Khz
 	TimerPtr[4] = 3;
