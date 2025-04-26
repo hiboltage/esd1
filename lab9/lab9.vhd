@@ -8,8 +8,8 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY audio_demo IS
-    PORT (	CLOCK2_50           					 		   : in std_logic;
+ENTITY lab9 IS
+	PORT (	CLOCK2_50           					 		   : in std_logic;
 				KEY                					 		   : in std_logic_vector (3 downto 0);
 				SW                 					 		   : in std_logic_vector (7 downto 0);
 	
@@ -37,12 +37,9 @@ ENTITY audio_demo IS
 				GPIO_0                             		   : INOUT STD_LOGIC_VECTOR(35 downto 0)
 
         );
-END audio_demo;
+end entity lab9;
 
-
-
-ARCHITECTURE rtl OF audio_demo IS
-
+ARCHITECTURE rtl OF lab9 IS
     
 	component nios_system is
 		port (
@@ -66,8 +63,7 @@ ARCHITECTURE rtl OF audio_demo IS
 			sdram_ras_n                 : out   std_logic;                                        -- ras_n
 			sdram_we_n                  : out   std_logic;                                        -- we_n
 			sdram_clk_clk               : out   std_logic;                                        -- clk
-			sw_export                   : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- export
-			switches_export             : in    std_logic_vector(9 downto 0)  := (others => 'X')  -- export
+			switches_export             : in    std_logic_vector(7 downto 0)  := (others => 'X')  -- export
 		);
 	end component nios_system;
 	 
@@ -101,28 +97,27 @@ begin
 
 	u0 : component nios_system
 		port map (
-			AUD_ADCDAT_to_the_audio_0   => CONNECTED_TO_AUD_ADCDAT_to_the_audio_0,   --     audio.ADCDAT
-			AUD_ADCLRCK_to_the_audio_0  => CONNECTED_TO_AUD_ADCLRCK_to_the_audio_0,  --          .ADCLRCK
-			AUD_BCLK_to_the_audio_0     => CONNECTED_TO_AUD_BCLK_to_the_audio_0,     --          .BCLK
-			AUD_DACDAT_from_the_audio_0 => CONNECTED_TO_AUD_DACDAT_from_the_audio_0, --          .DACDAT
-			AUD_DACLRCK_to_the_audio_0  => CONNECTED_TO_AUD_DACLRCK_to_the_audio_0,  --          .DACLRCK
-			clk_clk                     => clk_clk,                     --       clk.clk
-			i2c_SDAT                    => CONNECTED_TO_i2c_SDAT,                    --       i2c.SDAT
-			i2c_SCLK                    => CONNECTED_TO_i2c_SCLK,                    --          .SCLK
-			pin_export                  => CONNECTED_TO_pin_export,                  --       pin.export
-			reset_reset                 => CONNECTED_TO_reset_reset,                 --     reset.reset
-			sdram_addr                  => CONNECTED_TO_sdram_addr,                  --     sdram.addr
-			sdram_ba                    => CONNECTED_TO_sdram_ba,                    --          .ba
-			sdram_cas_n                 => CONNECTED_TO_sdram_cas_n,                 --          .cas_n
-			sdram_cke                   => CONNECTED_TO_sdram_cke,                   --          .cke
-			sdram_cs_n                  => CONNECTED_TO_sdram_cs_n,                  --          .cs_n
-			sdram_dq                    => CONNECTED_TO_sdram_dq,                    --          .dq
-			sdram_dqm                   => CONNECTED_TO_sdram_dqm,                   --          .dqm
-			sdram_ras_n                 => CONNECTED_TO_sdram_ras_n,                 --          .ras_n
-			sdram_we_n                  => CONNECTED_TO_sdram_we_n,                  --          .we_n
-			sdram_clk_clk               => CONNECTED_TO_sdram_clk_clk,               -- sdram_clk.clk
-			sw_export                   => CONNECTED_TO_sw_export,                   --        sw.export
-			switches_export             => CONNECTED_TO_switches_export              --  switches.export
+			AUD_ADCDAT_to_the_audio_0   => AUD_ADCDAT,   --     audio.ADCDAT
+			AUD_ADCLRCK_to_the_audio_0  => AUD_ADCLRCK,  --          .ADCLRCK
+			AUD_BCLK_to_the_audio_0     => AUD_BCLK,     --          .BCLK
+			AUD_DACDAT_from_the_audio_0 => int_AUD_DACDAT, --          .DACDAT
+			AUD_DACLRCK_to_the_audio_0  => AUD_DACLRCK,  --          .DACLRCK
+			clk_clk                     => CLOCK2_50,                     --       clk.clk
+			i2c_SDAT                    => FPGA_I2C_SDAT,                    --       i2c.SDAT
+			i2c_SCLK                    => FPGA_I2C_SCLK,                    --          .SCLK
+			pin_export                  => test_sig,                  --       pin.export
+			reset_reset                 => reset_n,                 --     reset.reset
+			sdram_addr                  => DRAM_ADDR,                  --     sdram.addr
+			sdram_ba                    => DRAM_BA,                    --          .ba
+			sdram_cas_n                 => DRAM_CAS_N,                 --          .cas_n
+			sdram_cke                   => DRAM_CKE,                   --          .cke
+			sdram_cs_n                  => DRAM_CS_N,                  --          .cs_n
+			sdram_dq                    => DRAM_DQ,                    --          .dq
+			sdram_dqm                   => DRAM_DQM,                   --          .dqm
+			sdram_ras_n                 => DRAM_RAS_N,                 --          .ras_n
+			sdram_we_n                  => DRAM_WE_N,                  --          .we_n
+			sdram_clk_clk               => DRAM_CLK,               -- sdram_clk.clk
+			switches_export             => SW(7 downto 0)              --  switches.export
 		);
 
 						
