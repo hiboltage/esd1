@@ -7,10 +7,10 @@ module nios_system (
 	hex3_export,
 	hex4_export,
 	hex5_export,
+	out_wave_writeresponsevalid_n,
 	pushbuttons_export,
 	reset_reset_n,
-	switches_export,
-	out_wave_writeresponsevalid_n);	
+	switches_export);	
 
 	input		clk_clk;
 	output	[6:0]	hex0_export;
@@ -19,8 +19,8 @@ module nios_system (
 	output	[6:0]	hex3_export;
 	output	[6:0]	hex4_export;
 	output	[6:0]	hex5_export;
+	output		out_wave_writeresponsevalid_n;
 	input	[3:0]	pushbuttons_export;
 	input		reset_reset_n;
 	input	[7:0]	switches_export;
-	output		out_wave_writeresponsevalid_n;
 endmodule

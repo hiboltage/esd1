@@ -6,9 +6,9 @@
 		.hex3_export                   (<connected-to-hex3_export>),                   //        hex3.export
 		.hex4_export                   (<connected-to-hex4_export>),                   //        hex4.export
 		.hex5_export                   (<connected-to-hex5_export>),                   //        hex5.export
+		.out_wave_writeresponsevalid_n (<connected-to-out_wave_writeresponsevalid_n>), //    out_wave.writeresponsevalid_n
 		.pushbuttons_export            (<connected-to-pushbuttons_export>),            // pushbuttons.export
 		.reset_reset_n                 (<connected-to-reset_reset_n>),                 //       reset.reset_n
-		.switches_export               (<connected-to-switches_export>),               //    switches.export
-		.out_wave_writeresponsevalid_n (<connected-to-out_wave_writeresponsevalid_n>)  //    out_wave.writeresponsevalid_n
+		.switches_export               (<connected-to-switches_export>)                //    switches.export
 	);
 

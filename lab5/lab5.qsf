@@ -43,8 +43,6 @@ set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:06:53  APRIL 10, 2025"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
-set_global_assignment -name VHDL_FILE ../lab4/lab4.vhd
 
 # Pin & Location Assignments
 # ==========================
@@ -1206,8 +1204,10 @@ set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION
 
 # end ENTITY(nios_system_sysid_qsys_0)
 # ------------------------------------
-set_global_assignment -name VHDL_FILE lab5.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
+set_global_assignment -name VHDL_FILE ../lab4/lab4.vhd
+set_global_assignment -name VHDL_FILE lab5.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

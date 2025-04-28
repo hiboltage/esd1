@@ -46,7 +46,7 @@ uint8 dispNums[] = {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};
 
 volatile uint32* PB_Ptr = (uint32*)PUSHBUTTONS_BASE;	// pointer to pushbuttons base address
 volatile uint32* SW_Ptr = (uint32*)SWITCHES_BASE;		// pointer to switches base address
-uint32* Servo_Ptr = (uint32*)SWITCHES_BASE;		// pointer to servo controller base address
+uint32* Servo_Ptr = (uint32*)SERVO_CONTROLLER_0_BASE;	// pointer to servo controller base address
 
 // ssd display pointers
 uint32* HEX0_Ptr = (uint32*)HEX0_BASE;
@@ -58,9 +58,9 @@ uint32* HEX5_Ptr = (uint32*)HEX5_BASE;
 
 // global variables
 uint8 pb_val = 0x00;
-uint32 min_angle = MIN_ANGLE;
+uint32 min_angle = MIN_ANGLE;	// in counts
 bool min_angle_flag = false;
-uint32 max_angle = MAX_ANGLE;
+uint32 max_angle = MAX_ANGLE;	// in counts
 bool max_angle_flag = true;
 
 

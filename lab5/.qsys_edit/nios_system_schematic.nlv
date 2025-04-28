@@ -18,19 +18,20 @@ preplace inst nios_system.nios2_gen2_0.cpu -pg 1
 preplace inst nios_system.switches -pg 1 -lvl 3 -y 1030
 preplace inst nios_system.nios2_gen2_0.reset_bridge -pg 1
 preplace inst nios_system.clk_0 -pg 1 -lvl 1 -y 360
-preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)jtag_uart_0.irq,(MASTER)nios2_gen2_0.irq,(SLAVE)servo_controller_0.interrupt_sender,(SLAVE)pushbuttons.irq) 1 2 1 730
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)nios_system.reset) 1 0 1 NJ
 preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex4,(SLAVE)hex4.external_connection) 1 0 3 NJ 860 NJ 860 NJ
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex2,(SLAVE)hex2.external_connection) 1 0 3 NJ 580 NJ 580 NJ
 preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)pushbuttons.s1,(SLAVE)onchip_memory2_0.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)switches.s1,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)hex1.s1,(SLAVE)hex2.s1,(SLAVE)servo_controller_0.avalon_slave_0,(SLAVE)hex3.s1,(MASTER)nios2_gen2_0.data_master,(SLAVE)hex0.s1,(SLAVE)hex4.s1,(SLAVE)hex5.s1) 1 1 2 330 300 710
+preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)hex1.reset,(SLAVE)jtag_uart_0.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)hex2.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)sysid_qsys_0.reset,(SLAVE)servo_controller_0.reset,(SLAVE)hex0.reset,(SLAVE)hex3.reset,(MASTER)clk_0.clk_reset,(SLAVE)hex5.reset,(SLAVE)switches.reset,(SLAVE)pushbuttons.reset,(SLAVE)hex4.reset,(SLAVE)onchip_memory2_0.reset1) 1 1 2 290 1180 710
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)servo_controller_0.interrupt_sender,(SLAVE)pushbuttons.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 690
 preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)pushbuttons.external_connection,(SLAVE)nios_system.pushbuttons) 1 0 3 NJ 240 NJ 240 NJ
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex5,(SLAVE)hex5.external_connection) 1 0 3 NJ 960 NJ 960 NJ
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)hex3.external_connection,(SLAVE)nios_system.hex3) 1 0 3 NJ 760 NJ 760 NJ
-preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)hex4.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)servo_controller_0.reset,(SLAVE)hex0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)pushbuttons.reset,(SLAVE)switches.reset,(SLAVE)hex3.reset,(SLAVE)sysid_qsys_0.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)nios2_gen2_0.reset,(SLAVE)hex1.reset,(MASTER)clk_0.clk_reset,(SLAVE)hex5.reset,(SLAVE)hex2.reset) 1 1 2 310 280 690
-preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)servo_controller_0.clock,(SLAVE)nios2_gen2_0.clk,(SLAVE)hex1.clk,(SLAVE)hex3.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)switches.clk,(SLAVE)hex5.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)hex4.clk,(SLAVE)hex2.clk,(SLAVE)hex0.clk,(SLAVE)onchip_memory2_0.clk1,(MASTER)clk_0.clk,(SLAVE)pushbuttons.clk) 1 1 2 290 260 770
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.switches,(SLAVE)switches.external_connection) 1 0 3 NJ 1060 NJ 1060 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)hex5.external_connection,(SLAVE)nios_system.hex5) 1 0 3 NJ 960 NJ 960 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)hex0.external_connection,(SLAVE)nios_system.hex0) 1 0 3 NJ 1160 NJ 1160 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.out_wave,(SLAVE)servo_controller_0.conduit_end) 1 0 3 NJ 180 NJ 180 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)hex2.external_connection,(SLAVE)nios_system.hex2) 1 0 3 NJ 580 NJ 580 NJ
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)hex0.clk,(SLAVE)hex3.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)pushbuttons.clk,(MASTER)clk_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)hex1.clk,(SLAVE)hex5.clk,(SLAVE)hex4.clk,(SLAVE)servo_controller_0.clock,(SLAVE)hex2.clk,(SLAVE)switches.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)jtag_uart_0.clk) 1 1 2 310 1080 770
+preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)pushbuttons.s1,(SLAVE)hex0.s1,(SLAVE)hex4.s1,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)hex5.s1,(SLAVE)hex1.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)switches.s1,(SLAVE)onchip_memory2_0.s1,(SLAVE)servo_controller_0.avalon_slave_0,(SLAVE)hex3.s1,(SLAVE)sysid_qsys_0.control_slave,(MASTER)nios2_gen2_0.data_master,(SLAVE)hex2.s1) 1 1 2 330 1200 730
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex3,(SLAVE)hex3.external_connection) 1 0 3 NJ 760 NJ 760 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)switches.external_connection,(SLAVE)nios_system.switches) 1 0 3 NJ 1060 NJ 1060 NJ
 preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex1,(SLAVE)hex1.external_connection) 1 0 3 NJ 480 NJ 480 NJ
-preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex0,(SLAVE)hex0.external_connection) 1 0 3 NJ 1160 NJ 1160 NJ
 levelinfo -pg 1 0 80 980
 levelinfo -hier nios_system 90 120 450 820 970

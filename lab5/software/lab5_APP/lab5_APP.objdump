@@ -77,7 +77,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  29 .jdi          000000e5  00000000  00000000  00022af3  2**0
                   CONTENTS, READONLY
- 30 .sopcinfo     0006c4ce  00000000  00000000  00022bd8  2**0
+ 30 .sopcinfo     00068aaa  00000000  00000000  00022bd8  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 00008000 l    d  .entry	00000000 .entry
@@ -733,7 +733,7 @@ alt_after_alt_main:
     8268:	003fff06 	br	8268 <_gp+0xffff31c4>
 
 0000826c <counts2deg>:
-uint32 max_angle = MAX_ANGLE;
+uint32 max_angle = MAX_ANGLE;	// in counts
 bool max_angle_flag = true;
 
 
@@ -983,7 +983,7 @@ int main(void)
     8510:	000f883a 	mov	r7,zero
     8514:	01800074 	movhi	r6,1
     8518:	31a10304 	addi	r6,r6,-31732
-    851c:	000b883a 	mov	r5,zero
+    851c:	01400044 	movi	r5,1
     8520:	0009883a 	mov	r4,zero
     8524:	000b9d80 	call	b9d8 <alt_ic_isr_register>
 

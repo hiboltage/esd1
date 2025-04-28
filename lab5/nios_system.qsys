@@ -203,6 +203,14 @@
          type = "int";
       }
    }
+   element pushbuttons.external_connection
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+   }
    element pushbuttons.s1
    {
       datum baseAddress
@@ -289,7 +297,7 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="lab4_part2.qpf" />
+ <parameter name="projectName" value="lab5.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
@@ -871,7 +879,7 @@
    version="18.1"
    start="nios2_gen2_0.irq"
    end="servo_controller_0.interrupt_sender">
-  <parameter name="irqNumber" value="1" />
+  <parameter name="irqNumber" value="0" />
  </connection>
  <connection
    kind="interrupt"
@@ -885,7 +893,7 @@
    version="18.1"
    start="nios2_gen2_0.irq"
    end="pushbuttons.irq">
-  <parameter name="irqNumber" value="0" />
+  <parameter name="irqNumber" value="1" />
  </connection>
  <connection
    kind="reset"

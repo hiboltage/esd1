@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../../nios_system.sopcinfo
  *
- * Generated: Fri Apr 25 20:37:15 EDT 2025
+ * Generated: Mon Apr 28 12:37:24 EDT 2025
  */
 
 /*
@@ -415,7 +415,7 @@
 #define PUSHBUTTONS_HAS_IN 1
 #define PUSHBUTTONS_HAS_OUT 0
 #define PUSHBUTTONS_HAS_TRI 0
-#define PUSHBUTTONS_IRQ 0
+#define PUSHBUTTONS_IRQ 1
 #define PUSHBUTTONS_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define PUSHBUTTONS_IRQ_TYPE "EDGE"
 #define PUSHBUTTONS_NAME "/dev/pushbuttons"
@@ -477,7 +477,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1744245470
+#define SYSID_QSYS_0_TIMESTAMP 1745857906
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

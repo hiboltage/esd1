@@ -27,12 +27,13 @@ typedef         float   real32;             // 32 bit real values
 #define ONE		0xF9
 #define TWO		0xA4
 #define THREE	0xB0
-#define FOUR	0x99
+#define FOUR	0x19
 #define FIVE	0x92
 #define SIX		0x82
 #define SEVEN	0xF8
 #define EIGHT	0x80
 #define NINE	0x98
+#define DASH	0x3F
 
 // servo angle bounds
 #define MIN_ANGLE	0x0000C350	// 50,000 counts (45 degrees)
@@ -57,10 +58,37 @@ uint32* HEX5_Ptr = (uint32*)HEX5_BASE;
 
 // global variables
 uint8 pb_val = 0x00;
-uint32 min_angle = MIN_ANGLE;
+uint32 min_angle = MIN_ANGLE;	// in counts
 bool min_angle_flag = false;
-uint32 max_angle = MAX_ANGLE;
+uint32 max_angle = MAX_ANGLE;	// in counts
 bool max_angle_flag = true;
+
+
+int counts2deg(uint32 counts)
+{
+	// servo counts to degrees conversion (working in uSecs)
+
+	// multiply by 0.02 (20ns clock)
+	// divide by USEC_PER_DEG (11.11us per degree)
+	// round result
+	// subtract 45 degrees (starting at an angle of 45)
+	int degrees = round((counts * 0.02) / USEC_PER_DEG) - 45;
+
+	return degrees;
+}
+
+uint32 deg2counts(int degrees)
+{
+	// degrees to servo counts conversion (working in uSecs)
+
+	// add 45 degrees (starting at an angle of 45)
+	// multiply by USEC_PER_DEG (11.11us per degree)
+	// round result
+	// divide by 0.02 (20ns clock)
+	uint32 counts = round((degrees + 45) * USEC_PER_DEG) / 0.02;
+
+	return counts;
+}
 
 
 void pb_isr(void *context)
@@ -75,7 +103,7 @@ void pb_isr(void *context)
 	if (pb_val == 0x08)
 	{
 		// read new minimum angle value from switches and indicate display update
-		min_angle = *SW_Ptr;
+		min_angle = deg2counts((int)*SW_Ptr);
 		min_angle_flag = true;
 	}
 
@@ -83,7 +111,7 @@ void pb_isr(void *context)
 	if (pb_val == 0x04)
 	{
 		// read new maximum angle value from switches and indicate display update
-		max_angle = *SW_Ptr;
+		max_angle = deg2counts((int)*SW_Ptr);
 		max_angle_flag = true;
 	}
 
@@ -96,23 +124,10 @@ void servo_isr(void *context)
 	*(Servo_Ptr + 1) = max_angle;
 }
 
-int counts2deg(uint32 counts)
-{
-	// servo counts to degrees conversion (working in uSecs)
-	// multiply by 0.02 (20ns clock)
-	// divide by USEC_PER_DEG (11.11us per degree)
-	// round result
-	// add 45 degrees (starting at an angle of 45)
-
-	int degrees = round((counts * 0.02) / USEC_PER_DEG)) + 45;
-
-	return degrees;
-}
-
 int main(void)
 {
 	// min and max string buffers for digit splitting
-	char min_buff[2], max_buff[3];
+	char min_buff[3], max_buff[4];
 
 	// enable PB interrupts on KEY2 and KEY3 and assign interrupt handler function
 	*(PB_Ptr + 2) = 0x0000000C;
@@ -132,6 +147,7 @@ int main(void)
 	*HEX0_Ptr = ZERO;
 	*HEX1_Ptr = ZERO;
 	*HEX2_Ptr = ZERO;
+	*HEX3_Ptr = DASH;
 	*HEX4_Ptr = ZERO;
 	*HEX5_Ptr = ZERO;
 
@@ -143,14 +159,9 @@ int main(void)
 			min_angle_flag = false;
 
 			// write to display
-			int min = snprintf(min_buff, 2, "%d", (int)min_angle);			// convert min_angle to a char array
-			printf("%d %s", min, min_buff);
-			*HEX5_Ptr = dispNums[(int)(min_buff[1] - '0')];	// display 10s digit on HEX5
-			*HEX4_Ptr = dispNums[(int)(min_buff[0] - '0')];	// display 1s digit on HEX4
-			*HEX3_Ptr = dispNums[(int)(min_buff[0] - '0')];	// display 1s digit on HEX4
-			*HEX2_Ptr = dispNums[(int)(min_buff[0] - '0')];	// display 1s digit on HEX4
-			*HEX1_Ptr = dispNums[(int)(min_buff[0] - '0')];	// display 1s digit on HEX4
-			*HEX0_Ptr = dispNums[(int)(min_buff[0] - '0')];	// display 1s digit on HEX4
+			snprintf(min_buff, 3, "%d", counts2deg(min_angle));	// send to buffer string
+			*HEX5_Ptr = dispNums[(int)(min_buff[0] - '0')];		// display 10s digit on HEX5
+			*HEX4_Ptr = dispNums[(int)(min_buff[1] - '0')];		// display 1s digit on HEX4
 		}
 
 		// if maximum angle has changed
@@ -159,10 +170,10 @@ int main(void)
 			max_angle_flag = false;
 
 			// write to display
-			snprintf(max_buff, 3, "%d", max_angle);	// convert max_angle to a char array
-			*HEX2_Ptr = dispNums[(int)max_buff[2]];			// display 100s digit on HEX2
-			*HEX1_Ptr = dispNums[(int)max_buff[1]];			// display 10s digit on HEX1
-			*HEX0_Ptr = dispNums[(int)max_buff[0]];			// display 1s digit on HEX0
+			snprintf(max_buff, 4, "%d", counts2deg(max_angle));	// convert max_angle to a char array
+			*HEX2_Ptr = dispNums[(int)(max_buff[0] - '0')];		// display 100s digit on HEX2
+			*HEX1_Ptr = dispNums[(int)(max_buff[1] - '0')];		// display 10s digit on HEX1
+			*HEX0_Ptr = dispNums[(int)(max_buff[2] - '0')];		// display 1s digit on HEX0
 		}
 	}
 
