@@ -1,0 +1,90 @@
+13:42:51 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+Info: Compiling audio_filter.c to obj/default/audio_filter.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Audio_Filter_APP_bsp//HAL/inc -I../Audio_Filter_APP_bsp/ -I../Audio_Filter_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/audio_filter.o audio_filter.c
+Info: Linking Audio_Filter_APP.elf
+nios2-elf-g++  -T'../Audio_Filter_APP_bsp//linker.x' -msys-crt0='../Audio_Filter_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../Audio_Filter_APP_bsp/   -Wl,-Map=Audio_Filter_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o Audio_Filter_APP.elf obj/default/audio_filter.o -lm -msys-lib=m
+nios2-elf-insert Audio_Filter_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 9 --sidp 0x4021060 --timestamp 1745463082 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab9_attempt2" --jdi ../..//output_files/lab9_attempt2.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab9_attempt2/software/Audio_Filter_APP_bsp/../../nios_system.sopcinfo
+Info: (Audio_Filter_APP.elf) 34 KBytes program size (code + initialized data).
+Info:                        22 KBytes free for stack + heap.
+Info: Creating Audio_Filter_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source Audio_Filter_APP.elf >Audio_Filter_APP.objdump
+[Audio_Filter_APP build complete]
+13:42:54 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+[Audio_Filter_APP build complete]
+13:47:04 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+Info: Compiling audio_filter.c to obj/default/audio_filter.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Audio_Filter_APP_bsp//HAL/inc -I../Audio_Filter_APP_bsp/ -I../Audio_Filter_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/audio_filter.o audio_filter.c
+audio_filter.c: In function 'timer_isr':
+audio_filter.c:75:3: warning: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+   delay(0.000004); // delay 40 nanoseconds
+   ^
+Info: Linking Audio_Filter_APP.elf
+nios2-elf-g++  -T'../Audio_Filter_APP_bsp//linker.x' -msys-crt0='../Audio_Filter_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../Audio_Filter_APP_bsp/   -Wl,-Map=Audio_Filter_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o Audio_Filter_APP.elf obj/default/audio_filter.o -lm -msys-lib=m
+obj/default/audio_filter.o: In function `timer_isr':
+C:\Users\steve\classes\ESD1\lab9_attempt2\software\Audio_Filter_APP/audio_filter.c:75: undefined reference to `delay'
+C:\Users\steve\classes\ESD1\lab9_attempt2\software\Audio_Filter_APP/audio_filter.c:81: undefined reference to `delay'
+collect2.exe: error: ld returned 1 exit status
+make: *** [Audio_Filter_APP.elf] Error 1
+13:47:05 **** Incremental Build of configuration Nios II for project Audio_Filter_APP_bsp ****
+make all 
+[BSP build complete]
+13:47:51 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+Info: Compiling audio_filter.c to obj/default/audio_filter.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Audio_Filter_APP_bsp//HAL/inc -I../Audio_Filter_APP_bsp/ -I../Audio_Filter_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/audio_filter.o audio_filter.c
+Info: Linking Audio_Filter_APP.elf
+nios2-elf-g++  -T'../Audio_Filter_APP_bsp//linker.x' -msys-crt0='../Audio_Filter_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../Audio_Filter_APP_bsp/   -Wl,-Map=Audio_Filter_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o Audio_Filter_APP.elf obj/default/audio_filter.o -lm -msys-lib=m
+nios2-elf-insert Audio_Filter_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 9 --sidp 0x4021060 --timestamp 1745463082 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab9_attempt2" --jdi ../..//output_files/lab9_attempt2.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab9_attempt2/software/Audio_Filter_APP_bsp/../../nios_system.sopcinfo
+Info: (Audio_Filter_APP.elf) 34 KBytes program size (code + initialized data).
+Info:                        22 KBytes free for stack + heap.
+Info: Creating Audio_Filter_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source Audio_Filter_APP.elf >Audio_Filter_APP.objdump
+[Audio_Filter_APP build complete]
+13:47:53 **** Incremental Build of configuration Nios II for project Audio_Filter_APP_bsp ****
+make all 
+[BSP build complete]
+13:47:59 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+[Audio_Filter_APP build complete]
+13:48:27 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+Info: Compiling audio_filter.c to obj/default/audio_filter.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Audio_Filter_APP_bsp//HAL/inc -I../Audio_Filter_APP_bsp/ -I../Audio_Filter_APP_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/audio_filter.o audio_filter.c
+Info: Linking Audio_Filter_APP.elf
+nios2-elf-g++  -T'../Audio_Filter_APP_bsp//linker.x' -msys-crt0='../Audio_Filter_APP_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../Audio_Filter_APP_bsp/   -Wl,-Map=Audio_Filter_APP.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o Audio_Filter_APP.elf obj/default/audio_filter.o -lm -msys-lib=m
+nios2-elf-insert Audio_Filter_APP.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 9 --sidp 0x4021060 --timestamp 1745463082 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/steve/classes/ESD1/lab9_attempt2" --jdi ../..//output_files/lab9_attempt2.jdi --sopcinfo C:/Users/steve/classes/ESD1/lab9_attempt2/software/Audio_Filter_APP_bsp/../../nios_system.sopcinfo
+Info: (Audio_Filter_APP.elf) 34 KBytes program size (code + initialized data).
+Info:                        22 KBytes free for stack + heap.
+Info: Creating Audio_Filter_APP.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source Audio_Filter_APP.elf >Audio_Filter_APP.objdump
+[Audio_Filter_APP build complete]
+13:48:28 **** Incremental Build of configuration Nios II for project Audio_Filter_APP_bsp ****
+make all 
+[BSP build complete]
+13:48:31 **** Incremental Build of configuration Nios II for project Audio_Filter_APP ****
+make all 
+Info: Building ../Audio_Filter_APP_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Audio_Filter_APP_bsp/
+[BSP build complete]
+[Audio_Filter_APP build complete]
