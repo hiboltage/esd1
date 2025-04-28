@@ -20,8 +20,9 @@ end entity audio_filter;
 architecture filter_arch of audio_filter is
 
 	-- register signals
-	signal reg_data   : std_logic_vector(15 downto 0);
-	signal reg_switch : std_logic;
+	signal reg_data   	: std_logic_vector(15 downto 0);
+	signal reg_switch 	: std_logic;
+	signal filter_enable	: std_logic := '0';
 
 	-- modified lab 8 filter component
 	component filter is
@@ -46,17 +47,24 @@ begin
 	registers : process(clk, reset_n, write)
 	begin
 		if (reset_n = '0') then			-- reset reg_data and switch registers
+			filter_enable <= '0';
 			reg_data <= (others => '0');
 			reg_switch <= '0';
 			
-		elsif (write = '1') then		-- if write enabled
-		
-			if (address = '1') then		-- if address 1, write to reg_switch register
-				reg_switch <= writedata(0);
+		elsif (rising_edge(clk)) then
 			
-			else								-- if address 0, write to reg_data register
-				reg_data <= writedata;
+			if (write = '1') then		-- if write enabled
+		
+				if (address = '1') then		-- if address 1, write to reg_switch register
+					filter_enable <= '0';
+					reg_switch <= writedata(0);
+			
+				else								-- if address 0, write to reg_data register
+					filter_enable <= '1';
+					reg_data <= writedata;
 				
+				end if;
+			
 			end if;
 			
 		end if;
@@ -67,7 +75,7 @@ begin
 		port map(
 			clk        => clk,
 			reset_n    => reset_n,
-			filter_en  => write,
+			filter_en  => filter_enable,
 			filter_sel => reg_switch,
 			data_in    => reg_data,
 			data_out   => readdata

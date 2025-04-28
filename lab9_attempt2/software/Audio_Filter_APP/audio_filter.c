@@ -32,7 +32,6 @@ uint32 ECHO_CNT = 0;		// index into buffer
 uint32 SAMPLE_CNT = 0;		// keep track of which sample is being read from SDRAM
 uint32 CHANNELS = 0;
 volatile uint16 TOGGLE = 0;
-volatile uint8 FILTER_SEL = 0;	// gets value of switches when isr is triggered
 volatile uint8 sw_val;		// gets the value of sw0 and sw1
 
 //set up pointers to peripherals
@@ -43,7 +42,7 @@ uint32* PinPtr      = (uint32*)PIN_BASE;
 
 // set up pointers to inputs
 volatile uint32* SwPtr		= (uint32*)SWITCHES_BASE;
-volatile uint32* FiltPtr	= (uint32*)AUDIO_FILTER_0_BASE;
+volatile uint16* FiltPtr	= (uint16*)AUDIO_FILTER_0_BASE;
 
 
 // In this ISR, most of the processing is performed.
@@ -71,28 +70,26 @@ void timer_isr(void *context)
 	if (SAMPLE_CNT < MAX_SAMPLES)
 	{
 		left_sample = SdramPtr[SAMPLE_CNT++];	// read left side sample first
+		*FiltPtr = left_sample;					// send left side sample to filter
 
 		if (CHANNELS == 2)	// stereo mode
 		{
 			right_sample = SdramPtr[SAMPLE_CNT++];	// only read right sample if stereo mode
+			*FiltPtr = right_sample;				// send right side sample to filter
 
-			if (sw_val)	// if either switch is active, send to filter
+			if (sw_val)	// if either switch is active, read samples from filter
 			{
-				*FiltPtr = left_sample;		// send left_sample to filter
-				left_sample = *FiltPtr;		// read filtered left sample
-
-				*FiltPtr = right_sample;	// send right_sample to filter
-				right_sample = *FiltPtr;	// read filtered right sample
+				left_sample = *FiltPtr;
+				right_sample = *FiltPtr;
 			}
 			AudioPtr[3] = right_sample;		// in stereo, output left and right samples to board lineout
 			AudioPtr[2] = left_sample;
 		}
 		else	// mono mode
 		{
-			if (sw_val)	// if either switch is active, send to filter
+			if (sw_val)	// if either switch is active, read sample from filter
 			{
-				*FiltPtr = left_sample;		// send left_sample to filter
-				left_sample = *FiltPtr;		// read filtered sample
+				left_sample = *FiltPtr;
 			}
 			AudioPtr[3] = left_sample;		// in mono, output same sample to both sides
 			AudioPtr[2] = left_sample;
@@ -114,22 +111,8 @@ void timer_isr(void *context)
 // If SW1 is high, the high-pass filter should be enabled.
 void switches_isr(void *context)
 {
-	*(SwPtr + 3) = 0;	// clear interrupt (write any value to edgecapture register)
-
 	sw_val = *SwPtr & 0x3;	// read sw1 and sw0 values (bitmask with 0b00000011)
 
-	// i am still a bit lost on writing to the filter component
-	// to my knowledge when you write to the base address you are writing to the avalon slave input
-	// and this input has the address, write, writedata, and readdata signals on it
-
-	// so in theory when you want to write to a component, all you do is write to the base address
-	// and you are sending data to writedata and the cpu is automatically sending the write enable high
-
-	// and when you want to read from a component, all you do is read from the base address because
-	// there is only one input and one output so you can only read/write one way each
-
-	// the switch register takes a 0 for low-pass and a 1 for high-pass
-	// theoretically writing to the base address with an offset (address) of 1 will write to the switch register right ?
 	if (sw_val == 0b01)			// if sw0 enabled, set audio filter component to low-pass
 	{
 		*(FiltPtr + 1) = 0;
@@ -138,6 +121,8 @@ void switches_isr(void *context)
 	{
 		*(FiltPtr + 1) = 1;
 	}
+
+	*(SwPtr + 3) = 0;	// clear interrupt (write any value to edgecapture register)
 
 	return;
 }

@@ -1,6 +1,6 @@
-02:34:36 **** Incremental Build of configuration Nios II for project Audio_Filter_APP_bsp ****
+11:47:59 **** Incremental Build of configuration Nios II for project Audio_Filter_APP_bsp ****
 make all 
 [BSP build complete]
 
-02:34:38 Build Finished (took 1s.387ms)
+11:48:00 Build Finished (took 759ms)
 
