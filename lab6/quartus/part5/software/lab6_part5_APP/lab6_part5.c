@@ -95,7 +95,7 @@ void test_c(uint32 address, uint32 testData, int ramSize){
 	}
 
 }
-
+/**
 // isr handler for key 1
 void key1_isr(void *context){
 
@@ -107,14 +107,14 @@ void key1_isr(void *context){
 	exit(0);	// exit program successfully
 
 }
-
+**/
 int main(){
 	// enable NIOS II to accept a pushbutton interrupt
 	// assign interrupt handler key1_isr
-	alt_ic_isr_register(KEY1_IRQ_INTERRUPT_CONTROLLER_ID,KEY1_IRQ,key1_isr,0,0);
+	//alt_ic_isr_register(KEY1_IRQ_INTERRUPT_CONTROLLER_ID,KEY1_IRQ,key1_isr,0,0);
 
-	*(key1Ptr + 2) = 1;		// enable interrupts on key1
-	*(key1Ptr + 3) = 0;		// clear key1 interrupt
+	//*(key1Ptr + 2) = 1;		// enable interrupts on key1
+	//*(key1Ptr + 3) = 0;		// clear key1 interrupt
 
 	*ledPtr = 0x00;	// clear leds
 	//test_a(0x000, 0x00, 4095);	// clear memory
@@ -124,6 +124,14 @@ int main(){
 		test_a(0x000, 0x00, 4095);		// perform memory tests
 		test_b(0x000, 0x1234, 2047);
 		test_c(0x000, 0xABCDEF90, 1023);
+
+		if (!*key1Ptr)
+		{
+			*ledPtr = 0xAA;
+			printf("RAM TEST DONE \n");
+
+			exit(0);	// exit program successfully
+		}
 
 	}
 
